@@ -11,4 +11,4 @@ May try to use heroku with subdomain to free host
 5. css
 
 Upcoming
-[ ] API key 
+- [ ] API key 
