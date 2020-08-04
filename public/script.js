@@ -7,7 +7,7 @@ let currentSearchedMovies = [];
 
 
 //get textbox and form, add listeners
-const textEntry = document.querySelector('#fcomment');
+const textEntry = document.querySelector('#toWatchComment');
 const newEntry = document.querySelector('.newEntry');
 newEntry.addEventListener('submit',submitEvent);
 

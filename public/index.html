@@ -4,37 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap" rel="stylesheet">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="elements.js" defer></script>
     <script src="script.js" defer></script>
     <title>Binge List</title>
 </head>
 <body>
-    <form class="newEntry"> 
-        <label for="fcomment">Enter your comment</label>
-        <input type="textarea" id="fcomment">
-    </form>
-    <br><br><br>
-    <form class="searchMovie">
-        <label for="fsearch">Enter your movie</label>
-        <input type="text" id="fsearch">
-    </form>
-    <div class="movieList">
-        <img src="assets/not_found.jpg" class="movieImage"> 
-        <p class="movieName">Hi</p>
-        <img src="assets/not_found.jpg" class="movieImage">
-        <p class="movieName">Hi</p>
-        <img src="assets/not_found.jpg" class="movieImage">
-        <p class="movieName">Hi</p>
+    <div class="content">
+    
+        <div class="movies">
+        
+            <div class="movieList">
+                <div class="theMovie">
+                    <img src="assets/not_found.jpg" class="movieImage"> 
+                    <p class="movieName">Hi</p>
+                </div>
+                <div class="theMovie">
+                    <img src="assets/not_found.jpg" class="movieImage"> 
+                    <p class="movieName">Hi</p>
+                </div>
+                <div class="theMovie">
+                    <img src="assets/not_found.jpg" class="movieImage"> 
+                    <p class="movieName">Hi</p>
+                </div>
+                
+            </div>
+    
+            <form class="searchMovie">
+                <input type="text" id="movieNameInput" autocomplete="off" placeholder="Movie Name...">
+            </form>
+        </div>
+
+
+        <div class='toWatch'>
+            <ul id="myWatchList">
+                <!-- <span class="checkButton">x</span> inside each li, added in js -->
+                <li class="watchItem"><p>Platform</p></li>
+                <li class="watchItem watched"><p>Parasite</p></li>
+    
+            </ul>
+
+            <form class="newEntry"> 
+                <input type="text" id="toWatchComment" autocomplete="off" placeholder="Movie Name...">
+            </form>
+
+        </div>
+
 
     </div>
+   
+
+
 </body>
 <style>
-    .movieImage{
-        width:300px;
-        height:200px;
-        object-fit: cover;
-        object-position: 0px 30%; 
-
-        border: 1px solid red;
-    }
 </style>
 </html>

@@ -1,0 +1,169 @@
+
+/* @import url(''); */
+
+:root{
+    --textOne: #363238;
+    --textTwo: white;
+    --highlightOne: #f3df29;
+    --bgOne: #487ecf;
+    --fontText: 'Sniglet';
+    font-family: arial, sans-serif;
+    font-size: 14px;;
+    
+    box-sizing: border-box;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    margin:20px;
+}
+
+
+/*!!!Page Setup*/
+
+.content{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    padding:20px;
+}
+
+/*!!!to watch list!!!*/
+
+.toWatch{
+    width:30%;
+    height:60%;
+    margin: 10% 0 40% 0;
+}
+
+
+
+.newEntry{
+    width:80%;
+    margin:0 auto;
+}
+
+.newEntry input{
+    width:97%;
+    height:2rem;
+    border:none;
+    margin: 0 auto;
+    display:block;
+
+    border-bottom: 1.5px dotted var(--bgOne);
+}
+
+.newEntry input:focus{
+    outline: none;
+}
+
+
+#myWatchList{
+    margin: 0 auto;
+    width:80%;
+    padding: 0;
+    list-style: none;
+
+
+}
+
+#myWatchList li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+.watchItem{
+    display: flex;
+    justify-content: space-between;
+
+
+    cursor: pointer;
+  
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+.watchItem:hover{
+    background-color: #ddd;
+}
+
+
+.watchItem.watched p{
+    text-decoration: line-through;
+}
+
+.watchItem span, .watchItem p{
+    padding:17px;
+}
+
+
+.checkButton {
+    margin-left:0;
+}
+  
+.checkButton:hover {
+    background-color: var(--highlightOne);
+    color: white;
+}
+
+
+
+/*movie search*/
+
+.movies{
+    width:40%;
+    margin: 10% 0 40% 0;
+
+}
+
+.movieList{
+    border: 1px solid red;
+    display:flex;
+    align-items: center;
+    overflow: scroll;
+    height: 400px;
+}
+
+
+.theMovie{
+    padding: 5px 15px;
+}
+
+.theMovie .movieImage{
+    height: 350px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.theMovie .movieName{
+    text-align: center;
+    padding: 5px 0;
+}
+
+.searchMovie{
+    margin:0 auto;
+}
+
+.searchMovie input{
+    width:97%;
+    height:2rem;
+    border:none;
+    margin: 0 auto;
+    display:block;
+
+    padding-top: 15px;
+    border-bottom: 1.5px dotted var(--bgOne);
+}
+
+.searchMovie input:focus{
+    outline: none;
+}
