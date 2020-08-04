@@ -8,7 +8,7 @@ let currentSearchedMovies = [];
 
 //get textbox and form, add listeners
 const textEntry = document.querySelector('#fcomment');
-const newEntry = document.querySelector('#newEntry');
+const newEntry = document.querySelector('.newEntry');
 newEntry.addEventListener('submit',submitEvent);
 
 //listener function to add entries by sending body request
@@ -43,33 +43,61 @@ async function sendData(entry,route){
 
 //main movie add func; TODO add trigger when click button of sorts
 async function addMovie(title){
+    currentSearchedMovies.length = 0;
     const movieJson = await getMovie(title);
-    console.log(movieJson);
     movieJson.Search.forEach(movie=>currentSearchedMovies.push(movie));
-    console.log(currentSearchedMovies);
-    await updateImage(title);
+    updateImage();
 }
 
 
 
 //search movie
 async function getMovie(title){
-    console.log('hi');
     const response = await fetch(`/getMovie/${title}`);
     const movieData = await response.json();
     return movieData;
 
 }
 
-//add image to page
-const movieImage = document.querySelector('#movieImage');
-async function updateImage(title){
-    const movieData = await getMovie(title);
-    const imageUrl = movieData.Search[0].Poster;
-    movieImage.src = imageUrl;
+//add movie visuals to page
+const movieList = document.querySelector('.movieList');
+function updateImage(){
+    // currentSearchedMovies
+    for (let i=0;i<5;i++){
+        let imageUrl = currentSearchedMovies[i].Poster;
+        const movieName = currentSearchedMovies[i].Title;
+    
+        if (imageUrl == 'N/A'){
+            imageUrl = './assets/not_found.jpg'
+        }
+    
+        const movieImage = document.createElement('img');
+        movieImage.classList.add('movieImage');
+        movieImage.src = imageUrl;
+    
+        const movieTitle = document.createElement('p');
+        movieTitle.classList.add('movieName');
+        movieTitle.textContent = movieName;
+
+        movieList.append(movieImage);
+        movieList.append(movieTitle);
+    }
+   
+
+
 }
 
-addMovie('platform').then();
+//searchMovie 
+const movieInput = document.querySelector('.searchMovie');
+const movieInputSearch = document.querySelector('#fsearch')
+movieInput.addEventListener('submit',searchMovie);
+
+async function searchMovie(e){
+    e.preventDefault();
+    const movieTitle = movieInputSearch.value;
+    await addMovie(movieTitle);
+    movieInputSearch.value = '';
+}
 
 
 

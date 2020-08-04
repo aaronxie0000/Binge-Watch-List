@@ -11,10 +11,11 @@ May try to use heroku with subdomain to free host
 5. css
 
 Upcoming
-- [ ] API key 
+- [X] Able to search for movie and add the image and name for all first ten (api only gives 10, then have to do next page)
+- [ ] Take a pause on backend and build out front end look
+- [ ] 
 
 Approach
 Will be able to search movie by entering title, can click on the movie want which will clear rest of list on backend
 (movies pic and info will still be there) and then click add movie to watch.
-The list will clear when submit  
-Concerns
+The list will clear when submit

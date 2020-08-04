@@ -8,10 +8,33 @@
     <title>Binge List</title>
 </head>
 <body>
-    <form id="newEntry"> 
+    <form class="newEntry"> 
         <label for="fcomment">Enter your comment</label>
-        <input type="text" id="fcomment">
+        <input type="textarea" id="fcomment">
     </form>
-    <img id="movieImage">
+    <br><br><br>
+    <form class="searchMovie">
+        <label for="fsearch">Enter your movie</label>
+        <input type="text" id="fsearch">
+    </form>
+    <div class="movieList">
+        <img src="assets/not_found.jpg" class="movieImage"> 
+        <p class="movieName">Hi</p>
+        <img src="assets/not_found.jpg" class="movieImage">
+        <p class="movieName">Hi</p>
+        <img src="assets/not_found.jpg" class="movieImage">
+        <p class="movieName">Hi</p>
+
+    </div>
 </body>
+<style>
+    .movieImage{
+        width:300px;
+        height:200px;
+        object-fit: cover;
+        object-position: 0px 30%; 
+
+        border: 1px solid red;
+    }
+</style>
 </html>
