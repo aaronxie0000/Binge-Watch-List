@@ -1,4 +1,11 @@
 
+//cross movie search and movie to watch page
+let currentSearchedMovies = []; 
+
+
+
+
+
 //get textbox and form, add listeners
 const textEntry = document.querySelector('#fcomment');
 const newEntry = document.querySelector('#newEntry');
@@ -15,10 +22,10 @@ async function submitEvent(e){
 }
 
 //general send data function, used by add entries
-async function sendData(entry,movieName,route){
+async function sendData(entry,route){
     const entryObj = {
         message: entry,
-        movie: movieName
+        movie: currentSearchedMovies[0].Title,
     }
     const fetchObj = {
         method: 'POST',
@@ -32,6 +39,17 @@ async function sendData(entry,movieName,route){
     const response = await rawResp.json();
     return response;
 }
+
+
+//main movie add func; TODO add trigger when click button of sorts
+async function addMovie(title){
+    const movieJson = await getMovie(title);
+    console.log(movieJson);
+    movieJson.Search.forEach(movie=>currentSearchedMovies.push(movie));
+    console.log(currentSearchedMovies);
+    await updateImage(title);
+}
+
 
 
 //search movie
@@ -51,5 +69,9 @@ async function updateImage(title){
     movieImage.src = imageUrl;
 }
 
-updateImage('platform').then();
+addMovie('platform').then();
+
+
+
+
 

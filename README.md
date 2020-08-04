@@ -12,3 +12,9 @@ May try to use heroku with subdomain to free host
 
 Upcoming
 - [ ] API key 
+
+Approach
+Will be able to search movie by entering title, can click on the movie want which will clear rest of list on backend
+(movies pic and info will still be there) and then click add movie to watch.
+The list will clear when submit  
+Concerns
