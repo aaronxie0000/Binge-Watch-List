@@ -1,4 +1,17 @@
 
+/*---Identifier code*---*/
+const idForm = document.querySelector('.idForm');
+idForm.addEventListener('submit',assingID);
+const idInput = document.querySelector('#idInput');
+
+var myID;
+function assingID(e){
+    e.preventDefault();
+    myID = idInput.value;
+    updateMovieWatch().then();
+}
+
+
 
 /*---Movie Browsing and Add---*/
 
@@ -95,20 +108,28 @@ function updateImage(){
 
 /*---To Watch List---*/
 
-//Add past added movies
-updateMovieWatch().then();
-async function updateMovieWatch(){
-    const rawData = await fetch ('/getDatabase');
-    console.log(rawData);
-    const movieNodeList = await rawData.json();
-    console.log(movieNodeList);
-    const allMovies = Array.from(movieNodeList);
+const textEntry = document.querySelector('#toWatchComment');
+const newEntry = document.querySelector('.newEntry');
+const myWatchList = document.querySelector('#myWatchList');
+newEntry.addEventListener('submit',submitToDatabase);
 
-    for (let i=0; i<allMovies.length;i++){
-        if (i==0 && document.querySelector('.watchItem p').textContent == '[Your Movie Here] Comments:'){
+
+//Add past added movies
+async function updateMovieWatch(){
+
+    const rawData = await fetch (`/getDatabase/${myID}`);
+    const movieNodeList = await rawData.json();
+    const allMovies = Array.from(movieNodeList);
+    
+    if (document.querySelector('.watchItem p')){
+        const existingMovie = document.querySelector('.watchItem p').textContent;
+        if ((existingMovie!= null && allMovies.length != 0) || existingMovie != '[Your Movie Here] Comments:'){
             myWatchList.innerHTML = '';
         }
-    
+    }
+
+    for (let i=0; i<allMovies.length;i++){
+        
         const myWatchItem = document.createElement('li');
         myWatchItem.classList.add('watchItem');
     
@@ -119,12 +140,8 @@ async function updateMovieWatch(){
         checkButtons.textContent = "\u2713"
         checkButtons.classList.add('checkButton')
         checkButtons.addEventListener('click',addWatched)
-        
-        console.log(allMovies[i]);
-        console.log(allMovies[i].meta.watched);
 
         if (allMovies[i].meta.watched){
-            console.log(allMovies[i]);
             myWatchItem.classList.add('watched');
         }
 
@@ -145,13 +162,10 @@ async function addWatched(){
   const targetObj = {movieName};
 
   if (this.parentNode.classList.contains('watched')){
-      console.log('un watch movie');
     const response = await sendData(targetObj, '/uncheckMovie');
     console.log(response); //tell if successful or not
   }
   else{
-    console.log('just watched movie');
-
     const response = await sendData(targetObj, '/checkMovie');
     console.log(response); //tell if successful or not
   }
@@ -159,12 +173,6 @@ async function addWatched(){
   this.parentNode.classList.toggle('watched');
 
 }
-
-
-const textEntry = document.querySelector('#toWatchComment');
-const newEntry = document.querySelector('.newEntry');
-const myWatchList = document.querySelector('#myWatchList');
-newEntry.addEventListener('submit',submitToDatabase);
 
 
 //submit to to watch list and database
@@ -177,6 +185,7 @@ async function submitToDatabase(e){
     //object contain info of if movie watched (to do list is checked or not)
     const metaObj = {
         watched: false,
+        user_id: myID||'n/a',
     }
 
     //send the movie data

@@ -15,6 +15,8 @@ Upcoming
 - [X] database add a status of watched or not, so when retrieve can show the same watched or not
 - [X] able to select movie from search, if multiple add multiple to database
 - [X] get checked or not checked from database, no user id yet
+- [X] user ID match
+- [ ] Style page
 
 Approach
 Will be able to search movie by entering title, can click on the movie want which will clear rest of list on backend
