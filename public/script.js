@@ -1,7 +1,29 @@
 
+// Create a "close" button and append it to each list item
+
+function updateVisualToWatchList(){
+    const myNodelist = document.querySelectorAll(".watchItem");
+    for (let i = 0; i < myNodelist.length; i++) {
+        var span = document.createElement("SPAN");
+        span.textContent = "\u2713"
+        span.classList.add('checkButton')
+        myNodelist[i].appendChild(span);
+    }
+
+
+    const checkButtons = document.querySelectorAll('.checkButton');
+    checkButtons.forEach(button=> button.addEventListener('click',addWatched));
+}
+
+
+function addWatched(){
+  this.parentNode.classList.toggle('watched');
+}
+
+
+
 //cross movie search and movie to watch page
 let currentSearchedMovies = []; 
-
 
 
 
@@ -9,35 +31,38 @@ let currentSearchedMovies = [];
 //get textbox and form, add listeners
 const textEntry = document.querySelector('#toWatchComment');
 const newEntry = document.querySelector('.newEntry');
-newEntry.addEventListener('submit',submitEvent);
+const myWatchList = document.querySelector('#myWatchList');
+newEntry.addEventListener('submit',submitToDatabase);
 
-//listener function to add entries by sending body request
-async function submitEvent(e){
-    e.preventDefault();
-    //how should i add the movie name in, the get is in separate funciton
-    const response = await sendData(textEntry.value, '/newEntry');
-    console.log(response);
-
-    textEntry.value ='';
-}
 
 //general send data function, used by add entries
-async function sendData(entry,route){
-    const entryObj = {
-        message: entry,
-        movie: currentSearchedMovies[0].Title,
-    }
+async function sendData(movieObj,route){
+    
     const fetchObj = {
         method: 'POST',
         headers:{
             "Content-type": "application/json"
         },
-        body: JSON.stringify(entryObj),
+        body: JSON.stringify(movieObj),
     }
 
     const rawResp = await fetch(route,fetchObj);
     const response = await rawResp.json();
     return response;
+}
+
+
+/*!!!*/
+
+//searchMovie 
+const movieInput = document.querySelector('.searchMovie');
+const movieInputSearch = document.querySelector('#movieNameInput')
+movieInput.addEventListener('submit',searchMovie);
+
+async function searchMovie(e){
+    e.preventDefault();
+    const movieTitle = movieInputSearch.value;
+    await addMovie(movieTitle);
 }
 
 
@@ -48,6 +73,43 @@ async function addMovie(title){
     movieJson.Search.forEach(movie=>currentSearchedMovies.push(movie));
     updateImage();
 }
+
+//listener function to add entries by sending body request
+async function submitToDatabase(e){
+    e.preventDefault();
+    console.log(currentSearchedMovies[0]);
+
+
+    const myWatchItem = document.createElement('li');
+    myWatchItem.classList.add('watchItem');
+
+    const watchItemName = document.createElement('p');
+    watchItemName.textContent = '[' + currentSearchedMovies[0].Title + ']' + ' Thoughts: ' + textEntry.value;
+
+    myWatchItem.append(watchItemName);
+    myWatchList.append(myWatchItem);
+
+    updateVisualToWatchList();
+
+    //call to get the full movie data
+    const rawData = await fetch(`/movieInfo/${currentSearchedMovies[0].imdbID}`);
+    const movieData = await rawData.json();
+
+    const movieObj = {
+        movie: movieData,
+        comments: textEntry.value,
+    }
+
+
+    const response = await sendData(movieObj, '/newEntry');
+    console.log(response); //tell if successful or not
+    textEntry.value ='';
+    movieInputSearch.value = '';
+
+}
+
+
+/*!!!*/
 
 
 
@@ -63,7 +125,13 @@ async function getMovie(title){
 const movieList = document.querySelector('.movieList');
 function updateImage(){
     // currentSearchedMovies
-    for (let i=0;i<5;i++){
+    movieList.innerHTML = '';
+    let length =5;
+    if (currentSearchedMovies.length<5){
+        length = currentSearchedMovies.length;
+    }    
+
+    for (let i=0;i<length;i++){
         let imageUrl = currentSearchedMovies[i].Poster;
         const movieName = currentSearchedMovies[i].Title;
     
@@ -79,25 +147,19 @@ function updateImage(){
         movieTitle.classList.add('movieName');
         movieTitle.textContent = movieName;
 
-        movieList.append(movieImage);
-        movieList.append(movieTitle);
+        const movieContain = document.createElement('div');
+        movieContain.classList.add('theMovie');
+
+
+        movieContain.append(movieImage);
+        movieContain.append(movieTitle);
+        movieList.append(movieContain);
     }
    
 
 
 }
 
-//searchMovie 
-const movieInput = document.querySelector('.searchMovie');
-const movieInputSearch = document.querySelector('#fsearch')
-movieInput.addEventListener('submit',searchMovie);
-
-async function searchMovie(e){
-    e.preventDefault();
-    const movieTitle = movieInputSearch.value;
-    await addMovie(movieTitle);
-    movieInputSearch.value = '';
-}
 
 
 

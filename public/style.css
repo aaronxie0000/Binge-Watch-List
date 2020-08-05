@@ -46,6 +46,8 @@ body{
 .newEntry{
     width:80%;
     margin:0 auto;
+    padding-top: 20px;
+
 }
 
 .newEntry input{
@@ -68,8 +70,11 @@ body{
     width:80%;
     padding: 0;
     list-style: none;
+    height: 500px;
 
-
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 #myWatchList li:nth-child(odd) {
@@ -120,7 +125,7 @@ body{
 /*movie search*/
 
 .movies{
-    width:40%;
+    width:50%;
     margin: 10% 0 40% 0;
 
 }
@@ -130,7 +135,7 @@ body{
     display:flex;
     align-items: center;
     overflow: scroll;
-    height: 400px;
+    height: 500px;
 }
 
 

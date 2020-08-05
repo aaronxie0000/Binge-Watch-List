@@ -35,3 +35,12 @@ runner.get('/getMovie/:title', async (request,response)=>{
     response.json(movieData);
 });
 
+
+//fetching movie with more specific
+runner.get('/movieInfo/:imbd',async(request,response)=>{
+    console.log(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${request.params.imbd}`);
+    const rawData = await backFetch (`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${request.params.imbd}`);
+    const movieData = await rawData.json();
+    response.json(movieData);
+});
+
