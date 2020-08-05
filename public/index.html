@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Quicksand&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap" rel="stylesheet">
+
+
     <link href="style.css" type="text/css" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Binge List</title>
 </head>
 <body>
     <div class="content">
-        <div>
-            <form class="idForm"> 
-                <input type="text" id="idInput" autocomplete="off" placeholder="Binge-watching Club Name">
-            </form>
-
+        <div class="landing">
+            <div class="myID">
+                <form class="idForm"> 
+                    <input type="text" id="idInput" autocomplete="off" placeholder="Binge-watching Club Name">
+                    <input type="submit" class="submitButtons" value="go!">
+                </form>
+    
+            </div>
         </div>
+
         <div class="movies">
         
             <div class="movieList">
@@ -47,6 +53,7 @@
     
             <form class="searchMovie">
                 <input type="text" id="movieNameInput" autocomplete="off" placeholder="Movie Name...">
+                <input type="submit" class="submitButtons" value="search">
             </form>
         </div>
 
@@ -61,10 +68,15 @@
 
             <form class="newEntry"> 
                 <input type="text" id="toWatchComment" autocomplete="off" placeholder="Comments & Anticipation...">
+                <!-- <input type="submit" class="submitButtons" value="add to watch list!"> -->
+                <button class="submitButtons" for='toWatchComment' style="font-size: 0.7rem;">add to <br> watch list!</button>
             </form>
 
         </div>
 
+        <div class="footer">
+
+        </div>
 
     </div>
    

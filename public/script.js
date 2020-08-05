@@ -141,7 +141,7 @@ async function updateMovieWatch(){
         checkButtons.classList.add('checkButton')
         checkButtons.addEventListener('click',addWatched)
 
-        if (allMovies[i].meta.watched){
+        if (allMovies[i].watched){
             myWatchItem.classList.add('watched');
         }
 
@@ -182,18 +182,13 @@ async function submitToDatabase(e){
     addToList(selectedMovies);
 
 
-    //object contain info of if movie watched (to do list is checked or not)
-    const metaObj = {
-        watched: false,
-        user_id: myID||'n/a',
-    }
-
     //send the movie data
     for (let i=0; i<selectedMovies.length;i++){
         const movieObj = {
             movie: selectedMovies[i],
             comments: textEntry.value,
-            meta: metaObj,
+            watched: false,
+            user_id: myID||'n/a',
         }
     
     

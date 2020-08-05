@@ -25,7 +25,7 @@ runner.post('/newEntry',(request,response)=>{
 
 //giving data from database
 runner.get('/getDatabase/:myID',(request,response)=>{
-    entries.find({'meta.user_id': request.params.myID}, (err, data) => {
+    entries.find({'user_id': request.params.myID}, (err, data) => {
         response.json(data)
     });
 });
@@ -33,7 +33,7 @@ runner.get('/getDatabase/:myID',(request,response)=>{
 
 //updating database
 runner.post('/checkMovie', (request,response)=>{
-    entries.update({'movie.Title': request.body.movieName},{ $set:{meta:{watched:true}}},{multi:true},function(err,numDocs){
+    entries.update({'movie.Title': request.body.movieName},{ $set:{watched:true}},{multi:true},function(err,numDocs){
         if(err) throw error
     });
     response.json({
@@ -42,7 +42,7 @@ runner.post('/checkMovie', (request,response)=>{
 });
 
 runner.post('/uncheckMovie', (request,response)=>{
-    entries.update({'movie.Title': request.body.movieName},{ $set:{meta:{watched:false}}},{multi:true},function(err,numDocs){
+    entries.update({'movie.Title': request.body.movieName},{ $set:{watched:false}},{multi:true},function(err,numDocs){
         if(err) throw error
     });
     response.json({
