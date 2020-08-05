@@ -151,9 +151,11 @@ body{
     object-fit: cover;
 }
 
-.theMovie .movieName{
-    text-align: center;
-    padding: 5px 0;
+.description{
+    display:flex;
+    align-items: center;
+    padding-top:5px;
+    justify-content: space-around;
 }
 
 .searchMovie{

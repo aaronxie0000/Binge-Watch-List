@@ -12,8 +12,9 @@ May try to use heroku with subdomain to free host
 
 Upcoming
 - [X] Able to search movie and enter into database along with a comment
-- [ ] database add a status of watched or not, so when retrieve can show the same watched or not
-- [ ] able to select movie from search, if multiple add multiple to database
+- [X] database add a status of watched or not, so when retrieve can show the same watched or not
+- [X] able to select movie from search, if multiple add multiple to database
+- [ ] retrive shows from database, no user id yet
 
 Approach
 Will be able to search movie by entering title, can click on the movie want which will clear rest of list on backend
