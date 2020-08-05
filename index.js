@@ -31,7 +31,7 @@ require('dotenv').config(); //for api key security
 
 runner.get('/getMovie/:title', async (request,response)=>{
     const rawData = await backFetch (`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${request.params.title}`);  
-    const movieData = await rawData.json();
+    let movieData = await rawData.json();
     response.json(movieData);
 });
 

@@ -11,9 +11,9 @@ May try to use heroku with subdomain to free host
 5. css
 
 Upcoming
-- [X] Able to search for movie and add the image and name for all first ten (api only gives 10, then have to do next page)
-- [ ] Take a pause on backend and build out front end look
-- [ ] 
+- [X] Able to search movie and enter into database along with a comment
+- [ ] database add a status of watched or not, so when retrieve can show the same watched or not
+- [ ] able to select movie from search, if multiple add multiple to database
 
 Approach
 Will be able to search movie by entering title, can click on the movie want which will clear rest of list on backend

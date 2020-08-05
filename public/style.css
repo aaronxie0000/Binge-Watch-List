@@ -84,7 +84,9 @@ body{
 .watchItem{
     display: flex;
     justify-content: space-between;
+}
 
+.watchItem p, .watchItem span{
 
     cursor: pointer;
   

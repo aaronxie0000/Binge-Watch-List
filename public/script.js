@@ -1,13 +1,16 @@
 
 // Create a "close" button and append it to each list item
+let myNodeList = document.querySelectorAll(".watchItem");
+updateVisualToWatchList();
 
 function updateVisualToWatchList(){
-    const myNodelist = document.querySelectorAll(".watchItem");
-    for (let i = 0; i < myNodelist.length; i++) {
+    myNodeList = document.querySelectorAll(".watchItem");
+    for (let i = 0; i < myNodeList.length; i++) {
+        if (myNodeList[i].childNodes[1] != null) continue;
         var span = document.createElement("SPAN");
         span.textContent = "\u2713"
         span.classList.add('checkButton')
-        myNodelist[i].appendChild(span);
+        myNodeList[i].appendChild(span);
     }
 
 
@@ -70,6 +73,10 @@ async function searchMovie(e){
 async function addMovie(title){
     currentSearchedMovies.length = 0;
     const movieJson = await getMovie(title);
+    if (movieJson.Response == 'False'){
+        movieInputSearch.value = 'NOT A VALID MOVIE';
+        return;
+    };
     movieJson.Search.forEach(movie=>currentSearchedMovies.push(movie));
     updateImage();
 }
@@ -77,9 +84,10 @@ async function addMovie(title){
 //listener function to add entries by sending body request
 async function submitToDatabase(e){
     e.preventDefault();
-    console.log(currentSearchedMovies[0]);
 
-
+    if (document.querySelector('.watchItem p').textContent == '[Your Movie Here] Comments:'){
+        myWatchList.innerHTML = '';
+    }
     const myWatchItem = document.createElement('li');
     myWatchItem.classList.add('watchItem');
 
