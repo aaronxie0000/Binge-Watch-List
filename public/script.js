@@ -11,7 +11,6 @@ movieInput.addEventListener('submit',searchMovie); //has to be on the form item
 const movieInputSearch = document.querySelector('#movieNameInput');
 
 //searched for movie, enter in the input box
-
 async function searchMovie(e){
     e.preventDefault();
     const movieTitle = movieInputSearch.value;
@@ -96,31 +95,69 @@ function updateImage(){
 
 /*---To Watch List---*/
 
+//Add past added movies
+updateMovieWatch().then();
+async function updateMovieWatch(){
+    const rawData = await fetch ('/getDatabase');
+    console.log(rawData);
+    const movieNodeList = await rawData.json();
+    console.log(movieNodeList);
+    const allMovies = Array.from(movieNodeList);
 
-// To Watch List Check button added
-let myNodeList = document.querySelectorAll(".watchItem");
-updateVisualToWatchList();
+    for (let i=0; i<allMovies.length;i++){
+        if (i==0 && document.querySelector('.watchItem p').textContent == '[Your Movie Here] Comments:'){
+            myWatchList.innerHTML = '';
+        }
+    
+        const myWatchItem = document.createElement('li');
+        myWatchItem.classList.add('watchItem');
+    
+        const watchItemName = document.createElement('p');
+        watchItemName.textContent = '[' + allMovies[i].movie.Title + '] (' +  allMovies[i].movie.Year + ') Thoughts: ' +  allMovies[i].comments;
 
-function updateVisualToWatchList(){
-    myNodeList = document.querySelectorAll(".watchItem");
-    for (let i = 0; i < myNodeList.length; i++) {
-        if (myNodeList[i].childNodes[1] != null) continue;
-        var span = document.createElement("SPAN");
-        span.textContent = "\u2713"
-        span.classList.add('checkButton')
-        myNodeList[i].appendChild(span);
+        const checkButtons = document.createElement("SPAN");
+        checkButtons.textContent = "\u2713"
+        checkButtons.classList.add('checkButton')
+        checkButtons.addEventListener('click',addWatched)
+        
+        console.log(allMovies[i]);
+        console.log(allMovies[i].meta.watched);
+
+        if (allMovies[i].meta.watched){
+            console.log(allMovies[i]);
+            myWatchItem.classList.add('watched');
+        }
+
+        myWatchItem.append(watchItemName);
+        myWatchItem.append(checkButtons);
+        myWatchList.append(myWatchItem);
+
     }
-
-
-    const checkButtons = document.querySelectorAll('.checkButton');
-    checkButtons.forEach(button=> button.addEventListener('click',addWatched));
 }
 
-//ToWatch List, check movie
-function addWatched(){
+
+//ToWatch List, check or uncheck movie
+async function addWatched(){
+  
+  const entry = this.parentNode.childNodes[0].textContent;
+  const movieName = entry.substring(entry.indexOf('[')+1,entry.lastIndexOf(']'));
+
+  const targetObj = {movieName};
+
+  if (this.parentNode.classList.contains('watched')){
+      console.log('un watch movie');
+    const response = await sendData(targetObj, '/uncheckMovie');
+    console.log(response); //tell if successful or not
+  }
+  else{
+    console.log('just watched movie');
+
+    const response = await sendData(targetObj, '/checkMovie');
+    console.log(response); //tell if successful or not
+  }
+  
   this.parentNode.classList.toggle('watched');
 
-  //using the movie name to search database and alter that data 
 }
 
 
@@ -135,7 +172,6 @@ async function submitToDatabase(e){
     e.preventDefault();
     let selectedMovies = findCheckMovie();
     addToList(selectedMovies);
-    updateVisualToWatchList();
 
 
     //object contain info of if movie watched (to do list is checked or not)
@@ -161,7 +197,7 @@ async function submitToDatabase(e){
 
 }
 
-//general send data function, used by add entries
+//send data to database
 async function sendData(toWatchObj,route){
     
     const fetchObj = {
@@ -190,7 +226,13 @@ function addToList(selectedMovies){
         const watchItemName = document.createElement('p');
         watchItemName.textContent = '[' + selectedMovies[i].Title + '] (' + selectedMovies[i].Year + ') Thoughts: ' + textEntry.value;
     
+        const checkButtons = document.createElement("SPAN");
+        checkButtons.textContent = "\u2713"
+        checkButtons.classList.add('checkButton')
+        checkButtons.addEventListener('click',addWatched)
+
         myWatchItem.append(watchItemName);
+        myWatchItem.append(checkButtons);
         myWatchList.append(myWatchItem);
 
     }
