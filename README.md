@@ -16,7 +16,9 @@ Upcoming
 - [X] able to select movie from search, if multiple add multiple to database
 - [X] get checked or not checked from database, no user id yet
 - [X] user ID match
-- [ ] Style page
+- [ ] order of list of movies when updated
+- [ ] check if sessionID is taken
+- [ ] new style design, single page with auto scroll, nav bar click to scroll
 
 Approach
 Will be able to search movie by entering title, can click on the movie want which will clear rest of list on backend

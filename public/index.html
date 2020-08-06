@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Quicksand&display=swap" rel="stylesheet">
 
 
 
@@ -14,10 +13,14 @@
 <body>
     <div class="content">
         <div class="landing">
+            <div class="introText">
+                <h3>Welcome to Binge List</h3>
+                <br><br>
+                <p>Keep a complete list of the movies you wanna watch. Enter you Binge Watch SessionID to access your list and store new movies and shows. Share your SessionID with others to share your list.</p>
+            </div>
             <div class="myID">
                 <form class="idForm"> 
-                    <input type="text" id="idInput" autocomplete="off" placeholder="Binge-watching Club Name">
-                    <input type="submit" class="submitButtons" value="go!">
+                    <input type="text" id="idInput" autocomplete="off" placeholder="Binge Watch SessionID">
                 </form>
     
             </div>
@@ -53,7 +56,6 @@
     
             <form class="searchMovie">
                 <input type="text" id="movieNameInput" autocomplete="off" placeholder="Movie Name...">
-                <input type="submit" class="submitButtons" value="search">
             </form>
         </div>
 
@@ -68,8 +70,6 @@
 
             <form class="newEntry"> 
                 <input type="text" id="toWatchComment" autocomplete="off" placeholder="Comments & Anticipation...">
-                <!-- <input type="submit" class="submitButtons" value="add to watch list!"> -->
-                <button class="submitButtons" for='toWatchComment' style="font-size: 0.7rem;">add to <br> watch list!</button>
             </form>
 
         </div>
