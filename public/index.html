@@ -5,81 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+    <link href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap" rel="stylesheet">
 
     <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="visual.js" defer></script>
     <script src="script.js" defer></script>
     <title>Binge List</title>
 </head>
 <body>
-    <div class="content">
-        <div class="landing">
-            <div class="introText">
-                <h3>Welcome to Binge List</h3>
-                <br><br>
-                <p>Keep a complete list of the movies you wanna watch. Enter you Binge Watch SessionID to access your list and store new movies and shows. Share your SessionID with others to share your list.</p>
-            </div>
-            <div class="myID">
-                <form class="idForm"> 
-                    <input type="text" id="idInput" autocomplete="off" placeholder="Binge Watch SessionID">
-                </form>
-    
-            </div>
+    <div class="designElement">
+        <div class="backToTop hidden">
+            <p>Back To Top</p>
+            <img src="./assets/noun_scroll up_111864.png">
         </div>
-
-        <div class="movies">
-        
-            <div class="movieList">
-                <div class="theMovie">
-                    <img src="assets/not_found.jpg" class="movieImage"> 
-                    <div class="description">
-                        <p class="movieName">Your Movie Here</p>
-                        <input type="checkbox" class="movieSelect"></input> 
-                    </div>
-                </div>
-                <div class="theMovie">
-                    <img src="assets/not_found.jpg" class="movieImage"> 
-                    <div class="description">
-                        <p class="movieName">Your Movie Here</p>
-                        <input type="checkbox" class="movieSelect"></input> 
-                    </div>
-
-                </div>
-                <div class="theMovie">
-                    <img src="assets/not_found.jpg" class="movieImage"> 
-                    <div class="description">
-                        <p class="movieName">Your Movie Here</p>
-                        <input type="checkbox" class="movieSelect"></input> 
-                    </div>
-                </div>
-                
-            </div>
-    
-            <form class="searchMovie">
-                <input type="text" id="movieNameInput" autocomplete="off" placeholder="Movie Name...">
-            </form>
-        </div>
-
-
-        <div class='toWatch'>
-            <ul id="myWatchList">
-                <!-- <span class="checkButton">x</span> inside each li, added in js -->
-                <li class="watchItem"><p>[Your Movie Here] Comments:</p></li>
-                <li class="watchItem"><p>[Your Movie Here] Comments:</p></li>
-    
-            </ul>
-
-            <form class="newEntry"> 
-                <input type="text" id="toWatchComment" autocomplete="off" placeholder="Comments & Anticipation...">
-            </form>
-
-        </div>
-
-        <div class="footer">
-
-        </div>
-
+        <div class="circleIcon">The Circle</div>
     </div>
-   
+    <div class="content">
+
+        <!-- page one -->
+
+        <div class="landing">
+            <div class="landingContent">
+                <div class="title">
+                    <img class="logo" src="./assets/noun_Movie_1909653.png">
+                    <p>Binge List</p>
+                </div>
+                <p class="introText">Keep a complete list of the movies you wanna watch. Enter your Binge Watch SessionID or simply enter a new one to access your list of movies and shows later. Share your SessionID with others to share your list!</p>
+                <div class="myID">
+                    <form class="idForm"> 
+                    <input type="text" id="idInput" autocomplete="off" placeholder="Binge Watch SessionID" autocomplete="off">
+                    </form>
+                    <button for='idInput' id="idSubmit">ok</button>
+                </div>
+            </div>
+            <div class="navBar"> 
+                <div class="navBubbleCurr"></div>
+                <div class="navBubbleNor"></div>
+                <div class="navBubbleNor"></div>
+            </div>
+            <div class="toNextPage"> 
+                <img src="assets/noun_Scroll_3388029.png">
+            </div>
+        </div>
+
+        <!-- page two -->
+
+        <div class="addContent">
+            <div class="pageTwoTitle">
+                <p>Your Next Movie & Show</p>
+            </div>
+
+            <div class="movies">
+                <div class="movieList">
+                    <div class="theMovie">
+                        <img src="assets/not_found.jpg" class="movieImage"> 
+                        <div class="description">
+                            <p class="movieName">Your Movie Here</p>
+                            <input type="checkbox" class="movieSelect"></input> 
+                        </div>
+                    </div>
+                    <div class="theMovie">
+                        <img src="assets/not_found.jpg" class="movieImage"> 
+                        <div class="description">
+                            <p class="movieName">Your Movie Here</p>
+                            <input type="checkbox" class="movieSelect"></input> 
+                        </div>
+
+                    </div>
+                    <div class="theMovie">
+                        <img src="assets/not_found.jpg" class="movieImage"> 
+                        <div class="description">
+                            <p class="movieName">Your Movie Here</p>
+                            <input type="checkbox" class="movieSelect"></input> 
+                        </div>
+                    </div>
+                    
+                </div>
+        
+                <div class="movieSearch">
+                    <div class="movieSearchInput">
+                        <form class="searchMovie">
+                            <input type="text" id="movieNameInput" autocomplete="off" placeholder="Movie Name...">
+                        </form>
+                        <form class="toWatchCommentForm"> 
+                            <input type="text" id="toWatchComment" autocomplete="off" placeholder="Comments & Anticipation...">
+                        </form>
+                    </div>
+                    <div class="movieSubmitButtons">
+                        <button for='movieNameInput' id="searchMovieSubmit" class="movieSubmit">search</button>
+                        <button for='toWatchComment' id="toWatchSubmit" class="movieSubmit">add to</button>
+                    </div>
+
+                </div>
+                <div class="navBar"> 
+                    <div class="navBubbleNor"></div>
+                    <div class="navBubbleCurr"></div>
+                    <div class="navBubbleNor"></div>
+                </div>
+            </div>
+
+            <div class='pageTwoMeta'>
+                <p>Try These #'s to refine your search</p>
+            </div>
+
+
+            <!-- <div class='toWatch'>
+                <ul id="myWatchList">
+                        <span class="checkButton">x</span> inside each li, added in js
+                    <li class="watchItem"><p>[Your Movie Here] Comments:</p></li>
+                    <li class="watchItem"><p>[Your Movie Here] Comments:</p></li>
+        
+                </ul>
+            </div> -->
+            
+            
+        </div>
+
+        <!-- page three -->
+
+        <div class="displayContent">
+        
+        </div>
+
+       
+    </div>
+
+   <footer>
+       <ul>
+           <li>Credit to Noun Project</li>
+       </ul>
+   </footer>
 
 
 </body>

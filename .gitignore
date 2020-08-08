@@ -2,6 +2,6 @@ entries.db
 node_modules
 .DS_Store
 .env
-assets
 arch.html
 archStyle.css
+archScript.js

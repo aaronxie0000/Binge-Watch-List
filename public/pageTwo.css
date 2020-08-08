@@ -1,0 +1,118 @@
+
+
+.addContent{
+    display: grid;
+    grid-template-areas:
+        'Title . '
+        'Movies Meta';
+    grid-template-rows: 0.3fr 1fr;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+
+.pageTwoTitle{
+    grid-area: Title;
+    font-size: 4rem;
+    color: var(--highlightTwo);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.movies{
+    grid-area: Movies;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height:90%;
+
+    flex-grow: 0;
+
+    margin:20px;
+}
+
+.pageTwoMeta{
+    grid-area: Meta;
+
+    margin:20px;
+
+}
+
+.movieList{
+    display: flex;
+    background-color: rgba(255,255,255,0.4);
+
+    padding:20px;
+    overflow: auto;
+    flex-shrink: 0;
+    height: 80%;
+
+    max-width: 100%;
+
+
+}
+
+.theMovie{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    min-width: 40%;
+}
+
+.theMovie img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+
+.theMovie .description{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+    width:60%;
+}
+
+.movieSearch{
+    height: 15%;
+    display:flex;
+}
+
+.searchMovie input, .newEntry input{
+    height:2rem;
+    width:20rem;
+    background-color: rgba(255,255,255,0.8);
+    border: none;
+
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0;
+    margin-right: 10px;
+}
+
+.searchMovie input:focus, .newEntry input:focus{
+    outline: none;
+}
+
+.movieSubmitButtons{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.movieSubmitButtons button{
+    margin: 10px 0;
+    height:2rem;
+    border: none;
+    border-radius: 3px;
+    padding:5px;
+    background-color: rgba(255,255,255,0.8);
+}
+
+.movieSubmitButtons button.currentButton{
+    background-color: var(--highlightTwo);
+}

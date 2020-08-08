@@ -18,7 +18,13 @@ Upcoming
 - [X] user ID match
 - [ ] order of list of movies when updated
 - [ ] check if sessionID is taken
-- [ ] new style design, single page with auto scroll, nav bar click to scroll
+- [ ] list for all movie list
+- [ ] new style design, one page scroll based
+    - [X] to page scrolling
+    - [X] circle background animation with css transform translate
+- [ ] last page show meta data like how often make entries, plot in chart.js
+- [ ] add another meta when submit using Date()
+- [ ] create backend to retrieve and show these data
 
 Approach
 Will be able to search movie by entering title, can click on the movie want which will clear rest of list on backend
