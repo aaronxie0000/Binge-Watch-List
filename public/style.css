@@ -8,10 +8,10 @@
     --highlightOne: #F17D7D;
     --highlightTwo: #F3DF29;
     --bgOne: #77BCFB;
+    --bgTwo: #174875;
     font-family: 'Sniglet', Arial, Helvetica, sans-serif;
     font-size: 14px;;
 
-    background: var(--bgOne);
 }
 
 img{
@@ -37,14 +37,39 @@ img{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 
 }
+
+/*pages*/
 
 .content>div{
     min-height: 100vh;
     min-width: 100%;
-    border: 1px solid red;
+    position: relative;
+    overflow: hidden;
 }
+
+
+.landing{
+    background: var(--bgOne);
+    z-index: 3;
+
+}
+
+.addContent{
+    background-color:var(--bgTwo);
+    z-index: 2;
+
+
+}
+
+.displayContent{
+    background-color: var(--bgOne);
+    z-index: 1;
+    
+}
+
 
 
 /* design elements */
@@ -75,10 +100,6 @@ img{
 
 
 .navBar{
-    position: absolute;
-    height: 5rem;
-    right: 1.7rem;
-
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -110,5 +131,16 @@ img{
     border: none;
     border-radius: 0.6rem;
     background: var(--highlightTwo);
+}
+
+
+/* footer*/
+
+
+footer{
+    background-color: rgb(43, 42, 42);
+    height:7rem;
+    padding:15px;
+    color:rgb(175, 175, 175);
 }
 

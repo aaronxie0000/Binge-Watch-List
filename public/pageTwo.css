@@ -3,22 +3,24 @@
 .addContent{
     display: grid;
     grid-template-areas:
-        'Title . '
-        'Movies Meta';
+        'Title Title Title '
+        '. Movies .';
     grid-template-rows: 0.3fr 1fr;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(3, 1fr);
 }
 
 .pageTwoTitle{
     grid-area: Title;
-    font-size: 4rem;
+    font-size: 5rem;
     color: var(--highlightTwo);
 
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    margin-bottom: 3rem;
     justify-content: center;
     z-index: 2;
 }
+
 
 .movies{
     grid-area: Movies;
@@ -35,19 +37,12 @@
     margin:20px;
 }
 
-.pageTwoMeta{
-    grid-area: Meta;
-
-    margin:20px;
-
-}
 
 .movieList{
     display: flex;
     background-color: rgba(255,255,255,0.4);
-
-    padding:20px;
-    overflow: auto;
+    overflow: scroll;
+    margin:0 15px;
     flex-shrink: 0;
     height: 80%;
 
@@ -114,3 +109,38 @@
     font-family: 'Sniglet', Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
 }
+
+
+/*design elements*/
+
+.navBarTwo{
+    position: absolute;
+    height: 5rem;
+    right: 1.7rem;
+    top:50%;
+    margin-top:-5rem;
+}
+
+.pageTwoCircleIcon{
+    position: absolute;
+    background-color: var(--highlightOne);
+    border-radius: 50%;
+    width: 1031px;
+    height: 1031px;
+
+    z-index:-1;
+    left:-10rem;
+    bottom:-16rem;
+
+}
+
+
+@media only screen and (max-width:900px){
+    .pageTwoCircleIcon{
+        width: 800px;
+        height: 800px;
+        left:-40rem;
+    }
+
+}
+

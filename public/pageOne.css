@@ -1,4 +1,5 @@
 
+
 .myID{
     width:70%;
 
@@ -46,18 +47,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:45%;
+    width:40%;
 
     position: relative;
     top: 15vh; /*can't use % etc. as root is vh, continue using it here */
     margin: 0 auto;
+    z-index: 1;
 
 }
+
+
+
 
 .title{
     display: flex;
     justify-content: center;
+
+    position: absolute;
+
+    margin-top:-280px;
+    
 }
+
 
 .landingContent .title p{
     font-size: 7rem;
@@ -72,11 +83,14 @@
     transform: rotate(-28.98deg);
 }
 
+
+
 .landingContent .introText{
     color: var(--textOne);
     font-size: 1.5rem;
     text-align: center;
     margin-bottom: 50px;
+    margin-top:100px;
 }
 
 
@@ -84,17 +98,17 @@
 /* static design elements */
 
 .circleIcon{
-    position: fixed; /*will move and transform as scroll with JS, as movement is not just scrolling */
+    position: absolute;
     left: 50%;
     margin-left: -515.5px;
     top: -20vh;
     background-color: var(--highlightOne);
-    
     border-radius: 50%;
     width: 1031px;
     height: 1031px;
 
 }
+
 
 
 .toNextPage{
@@ -110,6 +124,14 @@
 
 }
 
+.navBarOne{
+    position: absolute;
+    height: 5rem;
+    right: 1.7rem;
+    top:50%;
+    margin-top:-5rem;
+}
+
 
 /*reponsive*/
 
@@ -121,10 +143,26 @@
         width:80%;
     }
     .circleIcon{
-        margin-left: -400px;
+        margin-left: -300px;
 
-        width: 800px;
-        height: 800px;
+        width: 600px;
+        height: 600px;
+        position: relative !important;
+        top:-50vh !important;
+    }
+
+    .landing{
+        overflow: hidden;
+
+    }
+
+    .title{
+        margin-top: -100px;
+        position: static !important;
+    }
+
+    .landingContent .introText{
+        margin-top:10px;
     }
 
 }

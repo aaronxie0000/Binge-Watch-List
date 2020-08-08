@@ -1,8 +1,240 @@
 
 
 
-footer{
-    background-color: rgb(163, 163, 163);
-    height:7rem;
-    padding:15px;
+.displayContent{
+    display: grid;
+    grid-template-areas: 
+    'Title Title Title'
+    'toWatchList charts charts';
+    grid-template-rows: minmax(0,1fr) minmax(0,3fr);
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    padding:5rem 15rem;
 }
+
+
+.pageThreeTitle{
+    grid-area: Title;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+
+.toWatchListCont{
+    grid-area: toWatchList;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height:100% !important;
+
+
+}
+
+
+.charts{
+    grid-area: charts;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*title*/
+.pageThreeTitle p{
+    font-size:5rem;
+    color: var(--highlightTwo);
+}
+
+/*to watch list */
+
+.toWatchList{
+    background-color: var(--bgTwo);
+    color:white;
+    border-radius: 5px;
+
+    box-shadow: 5px 5px 15px rgb(65, 65, 65);
+
+    margin: 30px;
+
+    width: 400px;
+    max-height: 500px;
+    overflow: scroll;
+}
+
+.listMovieItem{
+    list-style-type: none;
+
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+    padding: 20px;
+
+}
+
+.checkButton{
+    cursor: pointer; 
+
+    -webkit-user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/*responsive data table*/
+
+.infoList{
+    border-collapse: collapse;
+    background-color: var(--bgTwo);
+    box-shadow: 5px 5px 15px rgb(65, 65, 65);
+    border-radius: 5px;
+
+    color:white;
+    flex-grow: 0;
+    padding:15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-height: 500px !important;
+    overflow: scroll !important;
+    margin-bottom: 10px;
+}
+
+
+.infoList tr th{
+    font-size:1.5rem;
+    padding: 30px;
+    color: var(--highlightTwo);
+}
+
+.infoList tr td{
+    font-size: 1rem;
+    padding: 30px;
+
+    text-align: center;
+}
+
+
+/*responsive outline*/
+
+
+@media only screen and (max-width:900px){
+
+    .displayContent{
+        grid-template-areas: 
+        'Title'
+        'toWatchList'
+        'charts';
+        grid-template-rows: minmax(0,0.3fr) repeat(2,minmax(0,1fr));
+        grid-template-columns: minmax(0,1fr);
+        padding:0;
+    }
+}
+
+/*reponsive data table*/
+
+@media only screen and (max-width:900px){
+    .infoList{
+        background: none;
+        box-shadow: none;
+
+        width: 430px;
+
+
+    }
+    .infoList tr:first-child{
+        display: none;
+    }
+
+    .infoList tr td{
+        display: block;
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+
+    .infoList tr{
+        display: grid;
+        grid-template-areas: 
+            'title year'
+            'director actors'
+            'rating watched';
+        
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        grid-template-rows: repeat(3,minmax(0,1fr));
+        background-color: var(--bgTwo);
+        box-shadow: 2px 2px 5px rgb(65, 65, 65);
+        border-radius: 5px;
+
+        margin-bottom: 5px;
+        padding:15px;
+    }
+
+    .infoList tr td:first-child{
+        font-size:2rem;
+        padding:3px;
+    }
+
+    .infoList tr td:not([data-th="Title"])::before{
+        content: attr(data-th)': ';
+        font-weight: bold;
+        color: var(--highlightOne);
+        font-size: 1.4rem;
+    }
+
+    .infoList tr td[data-th='Title']{
+        grid-area: title;
+    }
+    .infoList tr td[data-th='Director']{
+        grid-area: director;
+    }
+    .infoList tr td[data-th='Actors']{
+        grid-area: actors;
+    }
+    .infoList tr td[data-th='Year']{
+        grid-area: year;
+    }
+    .infoList tr td[data-th='Rating']{
+        grid-area: rating;
+    }
+    .infoList tr td[data-th='Watched On']{
+        grid-area: watched;
+    }
+
+
+
+    
+
+}
+
+
+
+/*design elements*/
+
+.navBarThree{
+    position: absolute;
+    height: 5rem;
+    right: 1.7rem;
+    top:50%;
+    margin-top:-5rem;
+}
+
+.pageThreeCircleIcon{
+    position: absolute;
+    background-color: var(--highlightOne);
+    border-radius: 50%;
+    width: 1031px;
+    height: 1031px;
+
+    z-index:-1;
+    right:-10rem;
+    top:-16rem;
+}
+

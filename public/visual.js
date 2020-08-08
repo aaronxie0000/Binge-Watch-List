@@ -1,28 +1,47 @@
 
 
+
 //circle background movement
 const circleIcon = document.querySelector('.circleIcon');
+const titleCont = document.querySelector('.title');
+
 
 document.addEventListener('scroll', circleIconEvent);
 
 function circleIconEvent(){
+    if (screen.width<=900){
+        return;
+    }
+    let fracDone;
+    if(window.scrollY>=window.innerHeight){
+       fracDone =1;
+    }
+    else{
+        fracDone =  window.scrollY/window.innerHeight;
+    }
+
+    const xValue = -(window.innerWidth/2)*fracDone;
+    const yValue = -(window.innerHeight/5)*fracDone;
+    const scaleValue = 1-1*fracDone;
+    const rotateValue = -20*fracDone;
+    
+    circleIcon.style.transform = `translate(${xValue}%, ${yValue}%)  scale(${scaleValue},${scaleValue})`;
+    titleCont.style.transform = `translate(${yValue}%, ${yValue}%) scale(${scaleValue},${scaleValue}) rotate(${rotateValue}deg)`;
+    
    
 
-    const fracDone = window.scrollY/window.innerHeight;
-    const xValue = -15*fracDone;
-    const yValue = -65*fracDone;
-
-
-    circleIcon.style.transform = `translate(${xValue}%, ${yValue}%)`;
 }
 
 
 
 
+
 const backToTop = document.querySelector('.backToTop');
+const logoIcon = document.querySelector('.title .logo');
 backToTop.addEventListener('mouseover', revealBackToTop);
 backToTop.addEventListener('mouseout', hideBackToTop);
 backToTop.addEventListener('click', scrollToTop);
+logoIcon.addEventListener('click', scrollToTop);
 
 
 //back to top button
