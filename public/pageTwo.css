@@ -77,12 +77,11 @@
     width:60%;
 }
 
-.movieSearch{
-    height: 15%;
-    display:flex;
-}
 
-.searchMovie input, .newEntry input{
+/*search inputs */
+
+
+.searchMovie input[type="text"], .toWatchCommentForm input[type="text"]{
     height:2rem;
     width:20rem;
     background-color: rgba(255,255,255,0.8);
@@ -94,25 +93,24 @@
     margin-right: 10px;
 }
 
-.searchMovie input:focus, .newEntry input:focus{
+.movieSearchInput form input[type="text"]:focus{
     outline: none;
 }
 
-.movieSubmitButtons{
-    display: flex;
-    flex-direction: column;
+.searchMovie input[type="text"]::placeholder, .toWatchCommentForm input[type="text"]::placeholder{
+    font-family: 'Sniglet', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
 }
 
 
-.movieSubmitButtons button{
+.movieSearchInput form input[type="submit"]
+{
     margin: 10px 0;
     height:2rem;
     border: none;
     border-radius: 3px;
-    padding:5px;
+    padding:7px;
     background-color: rgba(255,255,255,0.8);
-}
-
-.movieSubmitButtons button.currentButton{
-    background-color: var(--highlightTwo);
+    font-family: 'Sniglet', Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
 }

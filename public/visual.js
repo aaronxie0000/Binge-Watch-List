@@ -1,8 +1,4 @@
 
-function submitForm(form){
-    form.submit();
-}
-
 
 //circle background movement
 const circleIcon = document.querySelector('.circleIcon');
@@ -13,7 +9,7 @@ function circleIconEvent(){
    
 
     const fracDone = window.scrollY/window.innerHeight;
-    const xValue = -5*fracDone;
+    const xValue = -15*fracDone;
     const yValue = -65*fracDone;
 
 

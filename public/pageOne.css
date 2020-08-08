@@ -3,12 +3,12 @@
     width:70%;
 
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
-.myID input[type=text]{
+.idForm input[type=text]{
     height: 100%;
-    width:95%;
+    width:70%;
     border: none;
     border-bottom: dashed 0.4rem var(--highlightTwo);
     background: none;
@@ -19,12 +19,12 @@
     color: var(--textOne);
 }
 
-.myID input[type=text]::placeholder{
+.idForm input[type=text]::placeholder{
     font-family: 'Sniglet', Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
 }
 
-.myID input[type=text]:focus{
+.idForm input[type=text]:focus{
     outline: none;
 }
 
@@ -34,6 +34,10 @@
     background: var(--highlightTwo);
     border-radius: 14px;
     border:none;
+}
+
+#idSubmit:focus{
+    outline: none;
 }
 
 

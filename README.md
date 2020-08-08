@@ -16,6 +16,10 @@ Upcoming
 - [X] able to select movie from search, if multiple add multiple to database
 - [X] get checked or not checked from database, no user id yet
 - [X] user ID match
+- [ ] complete datatable
+- [ ] card slider
+
+
 - [ ] order of list of movies when updated
 - [ ] check if sessionID is taken
 - [ ] list for all movie list

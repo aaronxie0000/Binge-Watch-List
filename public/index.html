@@ -31,12 +31,10 @@
                     <p>Binge List</p>
                 </div>
                 <p class="introText">Keep a complete list of the movies you wanna watch. Enter your Binge Watch SessionID or simply enter a new one to access your list of movies and shows later. Share your SessionID with others to share your list!</p>
-                <div class="myID">
-                    <form class="idForm"> 
+                <form class="idForm myID"> 
                     <input type="text" id="idInput" autocomplete="off" placeholder="Binge Watch SessionID" autocomplete="off">
-                    </form>
-                    <button for='idInput' id="idSubmit">ok</button>
-                </div>
+                    <input type="submit" for="idForm" id="idSubmit" value="ok"/>
+                </form>
             </div>
             <div class="navBar"> 
                 <div class="navBubbleCurr"></div>
@@ -86,15 +84,17 @@
                     <div class="movieSearchInput">
                         <form class="searchMovie">
                             <input type="text" id="movieNameInput" autocomplete="off" placeholder="Movie Name...">
+                            <input type="submit" for="movieNameInput" id="searchMovieSubmit" value="search"/>
                         </form>
                         <form class="toWatchCommentForm"> 
                             <input type="text" id="toWatchComment" autocomplete="off" placeholder="Comments & Anticipation...">
+                            <input type="submit" for="toWatchComment" id="toWatchSubmit" value="add to"/>
                         </form>
                     </div>
-                    <div class="movieSubmitButtons">
+                    <!-- <div class="movieSubmitButtons">
                         <button for='movieNameInput' id="searchMovieSubmit" class="movieSubmit">search</button>
                         <button for='toWatchComment' id="toWatchSubmit" class="movieSubmit">add to</button>
-                    </div>
+                    </div> -->
 
                 </div>
                 <div class="navBar"> 
@@ -108,16 +108,6 @@
                 <p>Try These #'s to refine your search</p>
             </div>
 
-
-            <!-- <div class='toWatch'>
-                <ul id="myWatchList">
-                        <span class="checkButton">x</span> inside each li, added in js
-                    <li class="watchItem"><p>[Your Movie Here] Comments:</p></li>
-                    <li class="watchItem"><p>[Your Movie Here] Comments:</p></li>
-        
-                </ul>
-            </div> -->
-            
             
         </div>
 
