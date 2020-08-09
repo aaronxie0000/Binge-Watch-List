@@ -1,11 +1,11 @@
 require('dotenv').config();
 const fetch = require('node-fetch');
 
-
+const port = process.env.PORT||3000;
 const express = require('express');
 const runner = express();
 
-runner.listen(3000,()=>console.log('listening at 3000'));
+runner.listen(port,()=>console.log(`listening at ${port}`));
 runner.use(express.static('public'));
 runner.use(express.json()); 
 
