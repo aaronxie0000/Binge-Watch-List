@@ -29,7 +29,6 @@ async function sessionIDinput(e){
 async function checkID(sessionID){
     const raw = await fetch(`/getMovies/${sessionID}`);
     const response = await raw.json();
-    console.log(response.length);
     if (response.length==0){
         return false;
     }
@@ -127,7 +126,6 @@ async function addMovieToDataBase(e){
     //push to database
     for (let i=0; i<movieData.length;i++){
         const response = await pushToDataBase(movieData[i]);
-        console.log(response);
     }
 
     toWatchComment.value = '';
@@ -328,7 +326,6 @@ async function watchedItem(){
 
     const rawResponse = await fetch(`/updateTime`,postOptions);
     const response = await rawResponse.json();
-    console.log(response);
 
     updateDisplayMovies(mySessionID);
 }
