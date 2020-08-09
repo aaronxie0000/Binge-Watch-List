@@ -243,10 +243,7 @@ function updateToWatchList(inputObj){
     listMovieItem.append(listIcons);
     toWatchList.append(listMovieItem);
 
-    // checkButtons = document.querySelectorAll('.checkButton');
-    // checkButtons.forEach(button=>button.addEventListener('click',watchedItem));
     checkButton.addEventListener('click',watchedItem);
-
     removeButton.addEventListener('click', removeItem);
 
     if (inputObj.dateWatched!='Not Yet'){
@@ -328,7 +325,7 @@ async function watchedItem(){
     }
     
 
-    const sentData = {title,timeString}
+    const sentData = {title,timeString,mySessionID}
     const postOptions = {
         method: 'POST',
         headers:{
