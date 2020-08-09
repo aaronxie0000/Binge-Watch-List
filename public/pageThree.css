@@ -129,11 +129,37 @@
 }
 
 
+
+
+/*design elements*/
+
+.navBarThree{
+    position: absolute;
+    height: 5rem;
+    right: 1.7rem;
+    top:50%;
+    margin-top:-5rem;
+}
+
+.pageThreeCircleIcon{
+    position: absolute;
+    background-color: var(--highlightOne);
+    border-radius: 50%;
+    width: 1031px;
+    height: 1031px;
+
+    z-index:-1;
+    right:-10rem;
+    top:-16rem;
+}
+
+
+
 /*responsive outline*/
 
 
-@media only screen and (max-width:900px){
 
+@media only screen and (max-width:900px){
     .displayContent{
         grid-template-areas: 
         'Title'
@@ -143,17 +169,23 @@
         grid-template-columns: minmax(0,1fr);
         padding:0;
     }
-}
 
-/*reponsive data table*/
+    .pageThreeCircleIcon{
+        width: 800px;
+        height:800px ;
+        right:-15rem;
+        top:-20rem;
+    }
 
-@media only screen and (max-width:900px){
+
+
+    /*reponsive data table*/
+
     .infoList{
         background: none;
         box-shadow: none;
 
         width: 430px;
-
 
     }
     .infoList tr:first-child{
@@ -171,7 +203,8 @@
         grid-template-areas: 
             'title year'
             'director actors'
-            'rating watched';
+            'rating watched'
+            'thoughts thoughts';
         
         grid-template-columns: repeat(2,minmax(0,1fr));
         grid-template-rows: repeat(3,minmax(0,1fr));
@@ -213,34 +246,13 @@
     .infoList tr td[data-th='Watched On']{
         grid-area: watched;
     }
+    .infoList tr td[data-th='Thoughts']{
+        grid-area: thoughts;
+    }
 
 
 
     
 
-}
-
-
-
-/*design elements*/
-
-.navBarThree{
-    position: absolute;
-    height: 5rem;
-    right: 1.7rem;
-    top:50%;
-    margin-top:-5rem;
-}
-
-.pageThreeCircleIcon{
-    position: absolute;
-    background-color: var(--highlightOne);
-    border-radius: 50%;
-    width: 1031px;
-    height: 1031px;
-
-    z-index:-1;
-    right:-10rem;
-    top:-16rem;
 }
 
