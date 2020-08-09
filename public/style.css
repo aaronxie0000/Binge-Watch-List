@@ -23,6 +23,10 @@ img{
     -ms-user-select: none;
 }
 
+form input[type='submit']{
+    -webkit-appearance: none;
+}
+
 *{
     margin:0;
     padding:0;
