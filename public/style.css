@@ -211,11 +211,13 @@ footer ul{
     flex-direction: column;
     align-items: center;
     font-size: 0.7rem;
+
+    margin-top:-1.2rem;
 }
 
-footer ul li:nth-child(1){
-    font-size:1rem;
-    margin-bottom: 5px;
+footer ul li:nth-child(1), footer ul li:last-child{
+    font-size:0.8rem;
+    margin: 5px 0;
 }
 
 @media only screen and (max-width:900px){
