@@ -13,7 +13,7 @@ function sessionIDinput(e){
     e.preventDefault();
     mySessionID = sessionInput.value;
     //function to check if user name used
-    if(checkID()){
+    if(checkID(mySessionID) == true){
         alertMessage.textContent = 'This SessionID has been used. If this is you, simply exit and scroll to continue'
         alertBox.classList.remove('hidden');
     }
@@ -25,8 +25,15 @@ function sessionIDinput(e){
     updateDisplayMovies(mySessionID);
 }
 
-function checkID(){
-    sessionInput.value;
+async function checkID(sessionID){
+    const raw = await fetch(`/getMovies/${sessionID}`);
+    const response = await raw.json();
+    if (response.length==0){
+        return false;
+    }
+    else{
+        return true;
+    }
 }
 
 
@@ -123,7 +130,7 @@ async function addMovieToDataBase(e){
 
     toWatchComment.value = '';
     movieNameSearch.value = '';
-    
+
     updateDisplayMovies(mySessionID);
 
 }
@@ -192,7 +199,6 @@ async function updateDisplayMovies(userID){
     //function to get all the objects stored
     const raw = await fetch(`/getMovies/${userID}`);
     const movies = await raw.json();
-    console.log(movies);
 
     const removeToWatchList = document.querySelectorAll('.toWatchList > li:not(.listTitle)');
     removeToWatchList.forEach(ele=>ele.remove());

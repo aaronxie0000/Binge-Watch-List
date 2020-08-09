@@ -25,6 +25,5 @@ Upcoming
 
 - [X] add another meta when submit using Date()
 - [X] order of list of movies when updated
-- [ ] check if sessionID is taken
-- [ ] #'s in search bar for categories
+- [X] check if sessionID is taken
 - [X] create backend to retrieve and show these data
