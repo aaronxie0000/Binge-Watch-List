@@ -7,7 +7,7 @@
     justify-content: space-around;
 }
 
-.idForm input[type=text]{
+#idInput{
     height: 100%;
     width:70%;
     border: none;
@@ -20,12 +20,12 @@
     color: var(--textOne);
 }
 
-.idForm input[type=text]::placeholder{
+#idInput::placeholder{
     font-family: 'Sniglet', Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
 }
 
-.idForm input[type=text]:focus{
+#idInput:focus{
     outline: none;
 }
 
@@ -172,4 +172,7 @@
         margin-top:10px;
     }
 
+    #idInput{
+        width: 80%;
+    }
 }
