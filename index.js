@@ -47,7 +47,6 @@ runner.get('/getMovies/:myID',(request,response)=>{
 
 //update date watched
 runner.post('/updateTime', (request,response)=>{
-    console.log(request.body);
     userMovieEntries.update({'movieObj.Title': request.body.title},{ $set:{dateWatched:request.body.timeString}},{multi:true},function(err,numDocs){
         if(err) throw error
     });
@@ -56,3 +55,14 @@ runner.post('/updateTime', (request,response)=>{
     })
 });
 
+
+//remove item when dumped
+
+runner.post('/removeMovie',(request,response)=>{
+    userMovieEntries.remove({'userID':request.body.userID, 'movieObj.Title':request.body.Title},{multi:true},function(err,numRemoved){
+        // console.log(numRemoved);
+    })
+    response.json({
+        status: 'Updated Database'
+    })
+})

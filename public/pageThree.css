@@ -83,17 +83,39 @@
 
 }
 
+.listIcons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.removeButton img{
+    height:1rem;
+    width:0.8rem;
+    filter: invert(100);
+}
+
+.removeButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right:10px;
+}
+
+
+
 .watchedItem .listMovieName{
     text-decoration: line-through;
     text-decoration-color: var(--highlightOne);
     text-decoration-style: double;
 
 }
-.watchedItem .checkButton{
+.watchedItem div .checkButton{
     transform: rotate(45deg);
 }
 
-.checkButton{
+
+.checkButton, .removeButton{
     cursor: pointer; 
 
     -webkit-user-drag: none; 

@@ -210,9 +210,6 @@ async function updateDisplayMovies(userID){
         updateToWatchList(movies[i]);
         updateMovieTable(movies[i]);
     }
-    //function to place in todo list
-
-    //function to place in table entry, if watched make sure haved class=
 }
 
 //update to watch list
@@ -225,19 +222,35 @@ function updateToWatchList(inputObj){
     listMovieName.classList.add('listMovieName');
     listMovieName.textContent = inputObj.movieObj.Title;
 
+    const listIcons = document.createElement('div');
+    listIcons.classList.add('listIcons');
+
+    const removeButton = document.createElement('span');
+    removeButton.classList.add('removeButton');
+
+    const imgRemoveButton = document.createElement('img');
+    imgRemoveButton.src = "./assets/noun_Trash_3465739.png";
+
     const checkButton = document.createElement('span');
     checkButton.classList.add('checkButton');
     checkButton.textContent = 'x';
 
+    removeButton.append(imgRemoveButton);
+    listIcons.append(removeButton);
+    listIcons.append(checkButton);
+
     listMovieItem.append(listMovieName);
-    listMovieItem.append(checkButton);
+    listMovieItem.append(listIcons);
     toWatchList.append(listMovieItem);
 
-    checkButtons = document.querySelectorAll('.checkButton');
-    checkButtons.forEach(button=>button.addEventListener('click',watchedItem));
+    // checkButtons = document.querySelectorAll('.checkButton');
+    // checkButtons.forEach(button=>button.addEventListener('click',watchedItem));
+    checkButton.addEventListener('click',watchedItem);
+
+    removeButton.addEventListener('click', removeItem);
 
     if (inputObj.dateWatched!='Not Yet'){
-        checkButton.parentNode.classList.toggle('watchedItem');
+        checkButton.parentNode.parentNode.classList.toggle('watchedItem');
     }
 }
 
@@ -299,10 +312,10 @@ checkButtons.forEach(button=>button.addEventListener('click',watchedItem));
 
 //function to update database when a movie is crossed
 async function watchedItem(){
-    const movieName = this.parentNode;
+    const movieName = this.parentNode.parentNode;
     movieName.classList.toggle('watchedItem');
 
-    const title = this.parentNode.childNodes[0].textContent;
+    const title = movieName.childNodes[0].textContent;
 
     let timeString;
     if (movieName.classList.contains('watchedItem')){
@@ -328,6 +341,27 @@ async function watchedItem(){
     const response = await rawResponse.json();
 
     updateDisplayMovies(mySessionID);
+}
+
+async function removeItem(){
+    const movieItem = this.parentNode.parentNode;
+    const title = movieItem.childNodes[0].textContent;
+    const sentData = {
+        userID: mySessionID,
+        Title: title,
+    }
+    const postOptions = {
+        method: 'POST',
+        headers:{
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify(sentData),
+    }
+
+    const rawResponse = await fetch(`/removeMovie`,postOptions);
+    const response = await rawResponse.json();
+    updateDisplayMovies(mySessionID);
+
 }
 
 
