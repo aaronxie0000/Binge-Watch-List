@@ -7,6 +7,7 @@ const runner = express();
 
 runner.listen(3000,()=>console.log('listening at 3000'));
 runner.use(express.static('public'));
+runner.use(express.json()); 
 
 //get small data set
 runner.get('/getMinMovieData/:title',async (request,response)=>{
@@ -26,6 +27,9 @@ const database = require('nedb');
 const userMovieEntries = new database('userMovieEntries.db'); 
 userMovieEntries.loadDatabase();
 
+userMovieEntries.persistence.setAutocompactionInterval(10000)
+
+//add to data
 runner.post('/pushMovieData',(request,response)=>{
     userMovieEntries.insert(request.body);
 
@@ -33,4 +37,22 @@ runner.post('/pushMovieData',(request,response)=>{
         message: 'Success',
     })
 })
+
+//retrieve from data
+runner.get('/getMovies/:myID',(request,response)=>{
+    userMovieEntries.find({'userID': request.params.myID}, (err, data) => {
+        response.json(data)
+    });
+});
+
+//update date watched
+runner.post('/updateTime', (request,response)=>{
+    console.log(request.body);
+    userMovieEntries.update({'movieObj.Title': request.body.title},{ $set:{dateWatched:request.body.timeString}},{multi:true},function(err,numDocs){
+        if(err) throw error
+    });
+    response.json({
+        status: 'Updated Database'
+    })
+});
 

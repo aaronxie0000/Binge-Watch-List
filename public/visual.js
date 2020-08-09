@@ -108,3 +108,10 @@ function navToThird(){
 }
 
 
+//alert popup
+
+const exitAlert = document.querySelector('.exitAlert');
+const alertPopup = document.querySelector('.alertPopup');
+
+exitAlert.addEventListener('click',()=>alertPopup.classList.add('hidden'));
+

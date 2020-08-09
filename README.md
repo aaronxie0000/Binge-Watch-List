@@ -23,8 +23,8 @@ Upcoming
     - [X] circle background animation with css transform translate
 
 
-- [ ] add another meta when submit using Date()
-- [ ] order of list of movies when updated
+- [X] add another meta when submit using Date()
+- [X] order of list of movies when updated
 - [ ] check if sessionID is taken
 - [ ] #'s in search bar for categories
-- [ ] create backend to retrieve and show these data
+- [X] create backend to retrieve and show these data

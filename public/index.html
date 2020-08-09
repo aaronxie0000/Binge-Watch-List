@@ -18,6 +18,13 @@
             <p>Back To Top</p>
             <img src="./assets/noun_scroll up_111864.png">
         </div>
+        <div class="alertPopup hidden">
+            <div class="alert">
+                <p class="exitAlert">x</p>
+                <p class="alertMessage"></p>
+            </div>
+            <div class="smokeScreen"></div>
+        </div>
     </div>
     <div class="content">
 
@@ -99,11 +106,11 @@
                 <div class="movieSearch">
                     <div class="movieSearchInput">
                         <form class="searchMovie">
-                            <input type="text" id="movieNameInput" autocomplete="off" placeholder="Movie Name...">
+                            <input type="text" id="movieNameInput" autocomplete="off"  placeholder="Movie Name...">
                             <input type="submit" for="movieNameInput" id="searchMovieSubmit" value="search"/>
                         </form>
                         <form class="toWatchCommentForm"> 
-                            <input type="text" id="toWatchComment" autocomplete="off" placeholder="Heard this about it...">
+                            <input type="text" id="toWatchComment" autocomplete="off" placeholder="I heard....   (comments & anticipation)">
                             <input type="submit" for="toWatchComment" id="toWatchSubmit" value="Add Movie"/>
                         </form>
                     </div>
@@ -138,10 +145,11 @@
                     <li class="listMovieItem listTitle">
                         <p>Your List of Movies+Shows</p>
                     </li>
-                    <li class="listMovieItem">
+
+                    <!-- <li class="listMovieItem">
                         <p class="listMovieName">jfldjsflkjsdlfljksdafs</p>
                         <span class="checkButton">x</span>
-                    </li>
+                    </li> -->
                 
                    
 
@@ -150,18 +158,18 @@
             <div class="charts">
                 <table class="infoList">
 
-                    <tr>
+                    <tr class="infoListTitle">
                         <th>Title</th>
                         <th>Director</th>
-                        <th>Actors</th>
                         <th>Year</th>
+                        <th>Runtime</th>
                         <th>Rating (R.T.)</th>
                         <th>Watched On:</th>
                         <th>Thoughts:</th>
                     </tr>
                  
 
-                    <tr class="movieListEntry">
+                    <!-- <tr class="movieListEntry">
                         <td data-th="Title">Star Wars</td>
                         <td data-th="Director">Director</td>
                         <td data-th="Actors">Actor,names</td>
@@ -169,7 +177,7 @@
                         <td data-th="Rating">100%</td>
                         <td data-th="Watched On">Not Yet</td>
                         <td data-th="Thoughts">blah blah</td>
-                    </tr>
+                    </tr> -->
                    
 
                 </table>
