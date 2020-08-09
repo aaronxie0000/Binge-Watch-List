@@ -37,10 +37,6 @@
     border:none;
 }
 
-#idSubmit:focus{
-    outline: none;
-}
-
 
 .landingContent{
     display:flex;
@@ -173,7 +169,7 @@
     }
 
     #idInput{
-        width: 80%;
+        width: 70%;
     }
     .myID{
         width:90%;

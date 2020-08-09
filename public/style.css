@@ -25,6 +25,8 @@ img{
 
 form input[type='submit']{
     -webkit-appearance: none;
+    cursor: pointer; 
+
 }
 
 *{
@@ -141,6 +143,9 @@ form input[type='submit']{
     right: 15px;
     bottom: 0px;
     z-index: 888;
+
+    cursor: pointer; 
+
 }
 .backToTop.hidden p{
     display: none;
@@ -165,6 +170,9 @@ form input[type='submit']{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    cursor: pointer; 
+
 }
 
 .navBar div{
@@ -201,8 +209,9 @@ form input[type='submit']{
 footer{
     background-color: rgb(43, 42, 42);
     height:7rem;
-    padding:15px;
     color:rgb(175, 175, 175);
+
+    padding: 10px;
 }
 
 footer p{
@@ -229,4 +238,8 @@ footer ul li:nth-child(1), footer ul li:last-child{
 .navBar{
     display: none;
 }
+footer ul li:nth-child(1), footer ul li:last-child{
+    margin: 0 0;
+}
+
 }
