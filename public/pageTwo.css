@@ -152,6 +152,15 @@
 
 
 @media only screen and (max-width:900px){
+
+    .addContent{
+        padding: 0 20px;
+    }
+
+    .pageTwoTitle{
+        font-size: 4rem;
+    }
+
     .pageTwoCircleIcon{
         width: 800px;
         height: 800px;
@@ -178,9 +187,19 @@
         margin-left:3px;
     }
 
+
+    .movieList{
+        height:100%;
+        width:100%;
+    }
+    .theMovie{
+        height:100%;
+        max-width: 100%;
+    }
+
     .theMovie img{
         height:100%;
-        width:80%;
+        width:100%;
     }
     
 

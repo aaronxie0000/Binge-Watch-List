@@ -9,12 +9,13 @@ const sessionID = document.querySelector('.idForm');
 const sessionInput = document.querySelector('#idInput');
 sessionID.addEventListener('submit', sessionIDinput);
 
-function sessionIDinput(e){
+async function sessionIDinput(e){
     e.preventDefault();
     mySessionID = sessionInput.value;
     //function to check if user name used
-    if(checkID(mySessionID) == true){
-        alertMessage.textContent = 'This SessionID has been used. If this is you, simply exit and scroll to continue'
+    const existing = await checkID(mySessionID);
+    if(existing === true){
+        alertMessage.textContent = 'This SessionID has been used. If this is you or the EXAMPLE, simply exit and scroll to continue'
         alertBox.classList.remove('hidden');
     }
     else{
@@ -28,6 +29,7 @@ function sessionIDinput(e){
 async function checkID(sessionID){
     const raw = await fetch(`/getMovies/${sessionID}`);
     const response = await raw.json();
+    console.log(response.length);
     if (response.length==0){
         return false;
     }
