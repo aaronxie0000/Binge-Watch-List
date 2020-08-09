@@ -67,6 +67,12 @@
     overflow: scroll;
 }
 
+.listMovieItem.listTitle p{
+    color:var(--highlightTwo);
+    font-size: 1.5rem;
+
+}
+
 .listMovieItem{
     list-style-type: none;
 

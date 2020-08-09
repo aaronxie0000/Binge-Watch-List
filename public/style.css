@@ -144,3 +144,26 @@ footer{
     color:rgb(175, 175, 175);
 }
 
+footer p{
+    text-align: end;
+}
+
+footer ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7rem;
+}
+
+footer ul li:nth-child(1){
+    font-size:1rem;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width:900px){
+
+.navBar{
+    display: none;
+}
+}

@@ -16,21 +16,15 @@ Upcoming
 - [X] able to select movie from search, if multiple add multiple to database
 - [X] get checked or not checked from database, no user id yet
 - [X] user ID match
-- [ ] complete datatable
-- [ ] card slider
-
-
-- [ ] order of list of movies when updated
-- [ ] check if sessionID is taken
-- [ ] list for all movie list
-- [ ] new style design, one page scroll based
+- [X] complete data table
+- [X] card slider
+- [X] new style design, one page scroll based
     - [X] to page scrolling
     - [X] circle background animation with css transform translate
-- [ ] last page show meta data like how often make entries, plot in chart.js
-- [ ] add another meta when submit using Date()
-- [ ] create backend to retrieve and show these data
 
-Approach
-Will be able to search movie by entering title, can click on the movie want which will clear rest of list on backend
-(movies pic and info will still be there) and then click add movie to watch.
-The list will clear when submit
+
+- [ ] add another meta when submit using Date()
+- [ ] order of list of movies when updated
+- [ ] check if sessionID is taken
+- [ ] #'s in search bar for categories
+- [ ] create backend to retrieve and show these data

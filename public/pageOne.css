@@ -71,14 +71,14 @@
 
 
 .landingContent .title p{
-    font-size: 7rem;
+    font-size: 5rem;
     color: var(--highlightTwo);
     margin-bottom: 40px;
 }
 
 .landingContent .title .logo{
     height: 9rem;
-    margin-top: 5px;
+    margin-top: -20px;
     margin-right: 30px;
     transform: rotate(-28.98deg);
 }
