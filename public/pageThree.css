@@ -198,7 +198,16 @@
 
 
 
-@media only screen and (max-width:900px){
+@media only screen and (max-width:1200px){
+    .displayContent{
+        font-size: 10px !important;
+    }
+
+    .navBar{
+        display: none;
+    }
+
+
     .displayContent{
         grid-template-areas: 
         'Title'
@@ -212,12 +221,14 @@
     .pageThreeCircleIcon{
         width: 800px;
         height:800px ;
-        right:-15rem;
-        top:-20rem;
+        right:-15em;
+        top:-20em;
     }
 
     .toWatchList{
-        font-size:1.5rem;
+        font-size:1.5em;
+        width: 80vw;
+
     }
 
 
@@ -227,7 +238,7 @@
         background: none;
         box-shadow: none;
 
-        width: 430px;
+        width: 80vw;
 
     }
     .infoList tr:first-child{
@@ -237,7 +248,7 @@
     .infoList tr td{
         display: block;
         padding: 5px;
-        font-size: 1.2rem;
+        font-size: 1.2em;
     }
 
     .infoList tr{
@@ -259,7 +270,7 @@
     }
 
     .infoList tr td:first-child{
-        font-size:2rem;
+        font-size:2em;
         padding:3px;
     }
 
@@ -268,7 +279,7 @@
         content: attr(data-th)': ';
         font-weight: bold;
         color: var(--highlightOne);
-        font-size: 1.4rem;
+        font-size: 1.4em;
     }
 
     .infoList tr td[data-th='Title']{

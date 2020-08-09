@@ -47,10 +47,8 @@ runner.get('/getMovies/:myID',(request,response)=>{
 
 //update date watched
 runner.post('/updateTime', (request,response)=>{
-    console.log(request.body);
     userMovieEntries.update({'movieObj.Title': request.body.title,'userID':request.body.mySessionID},{ $set:{dateWatched:request.body.timeString}},{multi:true},function(err,numDocs){
         if(err) throw error
-        console.log(numDocs);
     });
     response.json({
         status: 'Updated Database'
