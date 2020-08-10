@@ -144,6 +144,7 @@ function getCheckedMovies(){
     let currentCheckMoviesID = [];
     try{
         if (currentDisplayMovies.length==0) throw('Error');
+        if (checkBox.length == 0) throw('Error');
         for(let i=0; i<checkBox.length;i++){
             if(checkBox[i].checked){
                 currentCheckMoviesID.push(currentDisplayMovies[i].imdbID);
