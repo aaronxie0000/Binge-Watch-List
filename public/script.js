@@ -285,11 +285,17 @@ function updateMovieTable(inputObj){
 
     const Rating = document.createElement('td');
     Rating.setAttribute('data-th','Rating');
-    if(inputObj.movieObj.Ratings[1] == null){
+
+    const ratingsPosition = inputObj.movieObj.Ratings.findIndex((arrayItem)=>{
+        if (arrayItem.Source == "Rotten Tomatoes") return true;
+        return false;
+    })
+
+    if(ratingsPosition == -1){
         Rating.textContent = 'N/A'
     }
     else{
-        Rating.textContent =  inputObj.movieObj.Ratings[1].Value;
+        Rating.textContent =  inputObj.movieObj.Ratings[ratingsPosition].Value;
     }
 
     const watchedOn = document.createElement('td');
