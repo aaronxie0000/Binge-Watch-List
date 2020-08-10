@@ -139,14 +139,22 @@ async function addMovieToDataBase(e){
 
 function getCheckedMovies(){
     const checkBox = document.querySelectorAll('.movieSelect');
-    //get here as need the search and checkbox-ing to be finished first
 
+    //get here as need the search and checkbox-ing to be finished first
     let currentCheckMoviesID = [];
-    for(let i=0; i<checkBox.length;i++){
-        if(checkBox[i].checked){
-            currentCheckMoviesID.push(currentDisplayMovies[i].imdbID);
+    try{
+        if (currentDisplayMovies.length==0) throw('Error');
+        for(let i=0; i<checkBox.length;i++){
+            if(checkBox[i].checked){
+                currentCheckMoviesID.push(currentDisplayMovies[i].imdbID);
+            }
         }
     }
+    catch{
+        alertMessage.textContent = 'Please make sure you have searched and selected at least one movie'
+        alertBox.classList.remove('hidden');
+    }
+   
 
     return currentCheckMoviesID;
 }
