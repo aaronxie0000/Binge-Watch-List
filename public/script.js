@@ -144,12 +144,12 @@ function getCheckedMovies(){
     let currentCheckMoviesID = [];
     try{
         if (currentDisplayMovies.length==0) throw('Error');
-        if (checkBox.length == 0) throw('Error');
         for(let i=0; i<checkBox.length;i++){
             if(checkBox[i].checked){
                 currentCheckMoviesID.push(currentDisplayMovies[i].imdbID);
             }
         }
+        if (currentCheckMoviesID.length == 0) throw('Error');
     }
     catch{
         alertMessage.textContent = 'Please make sure you have searched and selected at least one movie'
