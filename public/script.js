@@ -2,6 +2,7 @@
 const alertMessage = document.querySelector('.alertMessage');
 const alertBox = document.querySelector('.alertPopup');
 
+console.log('welcome to my website')
 /*---User Input---*/
 let mySessionID;
 
