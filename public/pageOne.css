@@ -69,6 +69,9 @@
     font-size: 5rem;
     color: var(--highlightTwo);
     margin-bottom: 40px;
+
+    text-shadow: 2px 1px 5px rgb(41, 41, 41);
+
 }
 
 .landingContent .title .logo{
@@ -101,6 +104,7 @@
     border-radius: 50%;
     width: 1031px;
     height: 1031px;
+    box-shadow: 2px 2px 25px rgb(65, 65, 65);
 
 }
 
