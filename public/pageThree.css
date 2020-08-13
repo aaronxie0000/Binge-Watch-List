@@ -68,8 +68,25 @@
 .listMovieItem.listTitle p{
     color:var(--highlightTwo);
     font-size: 1.5rem;
+}
+
+.movieNameCont{
+    display:flex;
+}
+
+.dragIcon img{
+    height:0.9rem;
+    filter: invert(90);
+}
+
+.dragIcon{
+    margin-right: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
+
 
 .listMovieItem{
     list-style-type: none;
@@ -122,6 +139,14 @@
     -webkit-user-drag: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+}
+
+
+/*for dragging*/
+
+.dragging{
+    background-color: #2a6aa5;
+    opacity: 0.8;
 }
 
 /*responsive data table*/

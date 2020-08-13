@@ -40,9 +40,10 @@ runner.post('/pushMovieData',(request,response)=>{
 
 //retrieve from data
 runner.get('/getMovies/:myID',(request,response)=>{
-    userMovieEntries.find({'userID': request.params.myID}, (err, data) => {
-        response.json(data)
+    userMovieEntries.find({'userID': request.params.myID}).sort({listPos: 1}).exec(function(err,docs) {
+        response.json(docs);
     });
+    //find returns a Cursor, cursor modifier include sort, the one in the sorting indicates ascending or decending
 });
 
 //update date watched
@@ -55,6 +56,15 @@ runner.post('/updateTime', (request,response)=>{
     })
 });
 
+//update listPos
+runner.post('/updatePos', (request,response)=>{
+    userMovieEntries.update({'movieObj.Title': request.body.title,'userID':request.body.mySessionID},{ $set:{listPos:request.body.listPos}},{multi:false},function(err,numDocs){
+        if(err) throw error
+    });
+    response.json({
+        status: 'Updated List Pos'
+    })
+});
 
 //remove item when dumped
 

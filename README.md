@@ -27,3 +27,4 @@ Upcoming
 - [X] order of list of movies when updated
 - [X] check if sessionID is taken
 - [X] create backend to retrieve and show these data
+- [X] draggable sort

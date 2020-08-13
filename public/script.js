@@ -176,12 +176,14 @@ async function pushToDataBase(movieObj){
     const userComment = toWatchComment.value;
     const dateWatched = 'Not Yet';
     const userID = mySessionID;
+    const listPos = -1;
+
     if (userID==null){
         alertMessage.textContent = 'Please re-enter your SessionID before submitting'
         alertBox.classList.remove('hidden');
         return;
     }
-    const sentData = {userID,userComment,dateWatched,movieObj};
+    const sentData = {userID,listPos,userComment,dateWatched,movieObj};
 
 
     const postOptions = {
@@ -227,6 +229,16 @@ function updateToWatchList(inputObj){
 
     const listMovieItem = document.createElement('li');
     listMovieItem.classList.add('listMovieItem');
+    listMovieItem.draggable = 'True';
+
+    const movieNameCont = document.createElement('div');
+    movieNameCont.classList.add('movieNameCont');
+
+    const dragIcon = document.createElement('span');
+    dragIcon.classList.add('dragIcon');
+
+    const imgDragIcon = document.createElement('img');
+    imgDragIcon.src = "./assets/noun_hamburger_menu_377841.png";
 
     const listMovieName = document.createElement('p');
     listMovieName.classList.add('listMovieName');
@@ -249,12 +261,21 @@ function updateToWatchList(inputObj){
     listIcons.append(removeButton);
     listIcons.append(checkButton);
 
-    listMovieItem.append(listMovieName);
+    dragIcon.append(imgDragIcon)
+    movieNameCont.append(dragIcon);
+    movieNameCont.append(listMovieName);
+
+    listMovieItem.append(movieNameCont);
     listMovieItem.append(listIcons);
     toWatchList.append(listMovieItem);
 
     checkButton.addEventListener('click',watchedItem);
     removeButton.addEventListener('click', removeItem);
+
+    listMovieItem.addEventListener('dragstart',dragStart);
+    listMovieItem.addEventListener('dragend',dragEnd);
+    toWatchList.addEventListener('dragover',dragOver);
+
 
     if (inputObj.dateWatched!='Not Yet'){
         checkButton.parentNode.parentNode.classList.toggle('watchedItem');
@@ -356,6 +377,7 @@ async function watchedItem(){
     updateDisplayMovies(mySessionID);
 }
 
+//funciton to delte from database if item trashed
 async function removeItem(){
     const movieItem = this.parentNode.parentNode;
     const title = movieItem.childNodes[0].textContent;
@@ -377,4 +399,68 @@ async function removeItem(){
 
 }
 
+
+//function to visual show drag, show reordered list, update database (of listPos value) for all items in to watch, update visual to refresh data table as well
+//based on Web Dev Simplified YT tutorial
+
+
+function dragStart(){
+    this.classList.add('dragging');
+}
+
+
+async function dragEnd(){
+    this.classList.remove('dragging');
+    const childElements = Array.from(this.parentNode.childNodes);
+    const movieItems = childElements.filter(ele=>ele.className == 'listMovieItem');
+    for (let i=0; i<movieItems.length;i++){
+        const sentData = {
+            mySessionID: mySessionID,
+            title: movieItems[i].childNodes[0].childNodes[1].innerText,
+            listPos: i,
+        }
+        const postOptions = {
+            method: 'POST',
+            headers:{
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(sentData),
+        }
+
+        const rawResponse = await fetch(`/updatePos`,postOptions);
+        const response = await rawResponse.json();
+    }
+
+    updateDisplayMovies(mySessionID);
+
+}
+
+
+function dragOver(e){
+    // e.preventDefault();
+    const afterElement = getDragToElement(this,e.clientY);
+    const selectedItem = document.querySelector('.dragging');
+    if (afterElement == null){
+        this.appendChild(selectedItem);
+    }
+    else{
+        this.insertBefore(selectedItem,afterElement);
+    }
+}
+
+//helper function to identify which element is closet to when dragging
+function getDragToElement(container,mouseY){
+    const eligbleDragTo = Array.from(container.querySelectorAll('.listMovieItem:not(.listTitle):not(.dragging)'));
+    //reduce first para is the single element reduce to, second is the orginal all items, the second part is a function with an inital value 
+    return eligbleDragTo.reduce((closest,child)=>{
+        const box = child.getBoundingClientRect();
+        const offset = mouseY - box.top - (box.height / 2);
+        if (offset<0 && offset > closest.offset){
+            return {offset:offset,element:child}
+        }
+        else{
+            return closest;
+        }
+    },{offset:Number.NEGATIVE_INFINITY}).element;
+}
 
