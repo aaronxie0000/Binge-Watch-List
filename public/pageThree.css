@@ -255,6 +255,9 @@
 
     }
 
+    .dragIcon{
+        display: none;
+    }
 
     /*reponsive data table*/
 
