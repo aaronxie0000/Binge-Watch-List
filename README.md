@@ -28,3 +28,6 @@ Upcoming
 - [X] check if sessionID is taken
 - [X] create backend to retrieve and show these data
 - [X] draggable sort
+
+bug
+- [X] after click watched, sorting fails 

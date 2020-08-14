@@ -412,7 +412,7 @@ function dragStart(){
 async function dragEnd(){
     this.classList.remove('dragging');
     const childElements = Array.from(this.parentNode.childNodes);
-    const movieItems = childElements.filter(ele=>ele.className == 'listMovieItem');
+    const movieItems = childElements.filter(ele=>ele.className == 'listMovieItem'||ele.className =='listMovieItem watchedItem');
     for (let i=0; i<movieItems.length;i++){
         const sentData = {
             mySessionID: mySessionID,

@@ -56,7 +56,7 @@ runner.post('/updateTime', (request,response)=>{
     })
 });
 
-//update listPos
+//update list position
 runner.post('/updatePos', (request,response)=>{
     userMovieEntries.update({'movieObj.Title': request.body.title,'userID':request.body.mySessionID},{ $set:{listPos:request.body.listPos}},{multi:false},function(err,numDocs){
         if(err) throw error
