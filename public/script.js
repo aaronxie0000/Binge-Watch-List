@@ -66,7 +66,7 @@ const movieList = document.querySelector('.movieList');
 
 function updateMoviePoster(movieData){
     if (movieData == null){
-        alertMessage.textContent = '!! Invalid Movie Name !! \n Sure you got the rigth movie or tv show name? Try again!'
+        alertMessage.textContent = 'Invalid movie name! Sure you got the rigth movie or tv show name? Try again!'
         alertBox.classList.remove('hidden');
         return;
     }
@@ -120,6 +120,13 @@ toWatchCommentForm.addEventListener('submit',addMovieToDataBase);
 
 async function addMovieToDataBase(e){
     e.preventDefault();
+    console.log(movieNameSearch.value);
+    if (movieNameSearch.value === ''){
+        alertMessage.textContent = 'Please enter a new movie name';
+        alertBox.classList.remove('hidden');
+        return;
+    }
+
     //get list of IMBd id of checked movie from currentDisplayMovies and checkboxes
     const IDList = getCheckedMovies();
     //request the full data from backend
