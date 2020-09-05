@@ -28,6 +28,7 @@ Upcoming
 - [X] check if sessionID is taken
 - [X] create backend to retrieve and show these data
 - [X] draggable sort
+- [ ] Try using firebase to host data, perhaps add an auth. feature
 
 bug
 - [X] after click watched, sorting fails 
