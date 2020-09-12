@@ -1,7 +1,7 @@
 
 ## To Do
 
-This practice file uses node.js, express, neDb, dotenv, node-fetch
+This practice file uses node.js, express, neDb, dotenv, node-fetch. 
 Deploy at https://binge-watch-list.herokuapp.com/
 
 1. Database
