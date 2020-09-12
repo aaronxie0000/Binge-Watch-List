@@ -1,14 +1,12 @@
 
 ## To Do
 
-This practice file uses node.js, express, neDb, dotenv, node-fetch. 
-Deploy at https://binge-watch-list.herokuapp.com/
+This practice file uses node.js, express, neDb, dotenv, node-fetch\ Deploy at https://binge-watch-list.herokuapp.com/
 
 1. Database
 2. API
 3. Misc backend (dotenv etc.)
-4. Front End 
-5. css
+4. Html, css, interactive/basic animations with JS
 
 Upcoming
 - [X] Able to search movie and enter into database along with a comment
