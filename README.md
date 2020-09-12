@@ -2,7 +2,7 @@
 ## To Do
 
 This practice file uses node.js, express, neDb, dotenv, node-fetch
-May try to use heroku with subdomain to free host
+Deploy at https://binge-watch-list.herokuapp.com/
 
 1. Database
 2. API
