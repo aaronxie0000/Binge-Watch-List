@@ -2,7 +2,3 @@ entries.db
 node_modules
 .DS_Store
 .env
-arch.html
-archStyle.css
-archScript.js
-archIndex.js
