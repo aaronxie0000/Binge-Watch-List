@@ -185,10 +185,11 @@ form input[type="submit"] {
 
 footer {
   background-color: rgb(43, 42, 42);
-  height: 7rem;
+  min-height: 7rem;
   color: rgb(175, 175, 175);
 
   padding: 10px;
+  padding-bottom: 25px;
 }
 
 footer p {
