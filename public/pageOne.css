@@ -1,181 +1,159 @@
+.myID {
+  width: 70%;
 
-
-.myID{
-    width:70%;
-
-    display:flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
-#idInput{
-    height: 100%;
-    width:70%;
-    border: none;
-    border-bottom: dashed 0.4rem var(--highlightTwo);
-    background: none;
-    padding:10px;
+#idInput {
+  height: 100%;
+  width: 70%;
+  border: none;
+  border-bottom: dashed 0.4rem var(--highlightTwo);
+  background: none;
+  padding: 10px;
 
-    font-family: 'Sniglet', Arial, Helvetica, sans-serif;
-    font-size: 1.5rem;
-    color: var(--textOne);
+  font-family: "Sniglet", Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: var(--textOne);
 }
 
-#idInput::placeholder{
-    font-family: 'Sniglet', Arial, Helvetica, sans-serif;
-    font-size: 1.5rem;
+#idInput::placeholder {
+  font-family: "Sniglet", Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
 }
 
-#idInput:focus{
-    outline: none;
+#idInput:focus {
+  outline: none;
 }
 
-#idSubmit{
-    width: 61px;
-    height: 51px;
-    background: var(--highlightTwo);
-    border-radius: 14px;
-    border:none;
+#idSubmit {
+  width: 61px;
+  height: 51px;
+  background: var(--highlightTwo);
+  border-radius: 14px;
+  border: none;
 }
 
+.landingContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
 
-.landingContent{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width:40%;
-
-    position: relative;
-    top: 15vh; /*can't use % etc. as root is vh, continue using it here */
-    margin: 0 auto;
-    z-index: 1;
-
+  position: relative;
+  top: 15vh; /*can't use % etc. as root is vh, continue using it here */
+  margin: 0 auto;
+  z-index: 1;
 }
 
+.title {
+  display: flex;
+  justify-content: center;
 
+  position: absolute;
 
-
-.title{
-    display: flex;
-    justify-content: center;
-
-    position: absolute;
-
-    top:-80px;
+  top: -80px;
 }
 
+.landingContent .title p {
+  font-size: 5rem;
+  color: var(--highlightTwo);
+  margin-bottom: 40px;
 
-.landingContent .title p{
-    font-size: 5rem;
-    color: var(--highlightTwo);
-    margin-bottom: 40px;
-
-    text-shadow: 2px 1px 5px rgb(41, 41, 41);
-
+  text-shadow: 2px 1px 5px rgb(41, 41, 41);
 }
 
-.landingContent .title .logo{
-    height: 9rem;
-    margin-top: -20px;
-    margin-right: 20px;
-    transform: rotate(-28.98deg);
+.landingContent .title .logo {
+  height: 9rem;
+  margin-top: -20px;
+  margin-right: 20px;
+  transform: rotate(-28.98deg);
 }
 
-
-
-.landingContent .introText{
-    color: var(--textOne);
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 50px;
-    margin-top:100px;
+.landingContent .introText {
+  color: var(--textOne);
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 100px;
 }
-
-
 
 /* static design elements */
 
-.circleIcon{
-    position: absolute;
-    left: 50%;
-    margin-left: -515.5px;
-    top: -20vh;
-    background-color: var(--highlightOne);
-    border-radius: 50%;
-    width: 1031px;
-    height: 1031px;
-    box-shadow: 2px 2px 25px rgb(65, 65, 65);
-
+.circleIcon {
+  position: absolute;
+  left: 50%;
+  margin-left: -515.5px;
+  top: -20vh;
+  background-color: var(--highlightOne);
+  border-radius: 50%;
+  width: 1031px;
+  height: 1031px;
+  box-shadow: 2px 2px 25px rgb(65, 65, 65);
 }
 
-
-
-.toNextPage{
-    position: absolute;
-    bottom: 10px;
-    left: 50vw;
-    margin-left: -27px;
-    margin: 0 auto;
+.toNextPage {
+  position: absolute;
+  bottom: 10px;
+  left: 50vw;
+  margin-left: -27px;
+  margin: 0 auto;
 }
 
-.toNextPage img{
-    width: 27px;
-
+.toNextPage img {
+  width: 27px;
 }
 
-.navBarOne{
-    position: absolute;
-    height: 5rem;
-    right: 1.7rem;
-    top:50%;
-    margin-top:-5rem;
+.navBarOne {
+  position: absolute;
+  height: 5rem;
+  right: 1.7rem;
+  top: 50%;
+  margin-top: -5rem;
 }
-
-
-
 
 /*reponsive*/
 
+@media only screen and (max-width: 900px) {
+  :root {
+    font-size: 10px !important;
+  }
+  .landingContent {
+    width: 80%;
+  }
+  .circleIcon {
+    margin-left: -400px;
 
-@media only screen and (max-width:900px){
-    :root{
-        font-size: 10px !important;
-    }
-    .landingContent{
-        width:80%;
-    }
-    .circleIcon{
-        margin-left: -400px;
+    width: 800px;
+    height: 800px;
+    position: relative !important;
+    top: -50vh !important;
+  }
 
-        width: 800px;
-        height: 800px;
-        position: relative !important;
-        top:-50vh !important;
-    }
+  .landing {
+    overflow: hidden;
+  }
 
-    .landing{
-        overflow: hidden;
+  .title {
+    margin-top: -85px;
+    position: static !important;
+  }
 
-    }
+  .title .logo {
+    margin-bottom: 20px !important;
+    height: 5rem;
+  }
 
-    .title{
-        margin-top: -85px;
-        position: static !important;
-    }
+  .landingContent .introText {
+    margin-top: 10px;
+  }
 
-    .title .logo{
-        margin-bottom:20px !important;
-        height: 5rem;
-    }
-
-    .landingContent .introText{
-        margin-top:10px;
-    }
-
-    #idInput{
-        width: 70%;
-    }
-    .myID{
-        width:90%;
-    }
+  #idInput {
+    width: 70%;
+  }
+  .myID {
+    width: 90%;
+  }
 }

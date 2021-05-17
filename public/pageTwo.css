@@ -1,208 +1,195 @@
+.addContent {
+  display: grid;
+  grid-template-areas:
+    "Title"
+    "Movies";
+  grid-template-rows: 0.3fr 1fr;
+  grid-template-columns: minmax(0, 1fr);
 
-
-.addContent{
-    display: grid;
-    grid-template-areas:
-        'Title'
-        'Movies';
-    grid-template-rows: 0.3fr 1fr;
-    grid-template-columns: minmax(0, 1fr);
-
-    padding:0 100px;
+  padding: 0 100px;
 }
 
-.pageTwoTitle{
-    grid-area: Title;
-    font-size: 5rem;
-    color: var(--highlightTwo);
+.pageTwoTitle {
+  grid-area: Title;
+  font-size: 5rem;
+  color: var(--highlightTwo);
 
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 3rem;
-    justify-content: center;
-    z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  justify-content: center;
+  z-index: 2;
 }
 
+.movies {
+  grid-area: Movies;
 
-.movies{
-    grid-area: Movies;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 60px !important;
-    margin: 0 50px;
+  margin-bottom: 60px !important;
+  margin: 0 50px;
 }
 
+.movieList {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 0 15px;
+  padding: 30px;
 
-.movieList{
-    display: flex;
-    background-color: rgba(255,255,255,0.4);
-    margin:0 15px;
-    padding:30px;
-    
-    overflow-x: scroll;
-    overflow-y: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
 
-    box-shadow: 5px 5px 10px rgb(65, 65, 65);
+  box-shadow: 5px 5px 10px rgb(65, 65, 65);
 }
 
-.theMovie{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 10px;
+.theMovie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
 
-    max-width: 25vw;
-    flex-shrink: 0; /*!!!*/
+  max-width: 25vw;
+  flex-shrink: 0; /*!!!*/
 }
 
-.theMovie img{
-    overflow:hidden;
-    object-fit: cover;
-    height: 25rem;
-    max-width:100%;
+.theMovie img {
+  overflow: hidden;
+  object-fit: cover;
+  height: 25rem;
+  max-width: 100%;
 
-    border-radius: 5px;
-    border: 2px solid var(--bgTwo);
-    padding: 3px;
+  border-radius: 5px;
+  border: 2px solid var(--bgTwo);
+  padding: 3px;
 }
 
-.theMovie .description{
-    display: flex;
-    justify-content: space-around;
-    margin: 10px 0;
-    width:60%;
+.theMovie .description {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+  width: 60%;
 }
-
 
 /*search inputs */
 
-.movieSearchInput{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.movieSearchInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.searchMovie input[type="text"], .toWatchCommentForm input[type="text"]{
-    height:4rem;
-    width:20rem;
-    background-color: rgba(255,255,255,0.8);
-    border: none;
+.searchMovie input[type="text"],
+.toWatchCommentForm input[type="text"] {
+  height: 4rem;
+  width: 20rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
 
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-    box-shadow: 2px 2px 7px rgb(65, 65, 65);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 2px 2px 7px rgb(65, 65, 65);
 }
 
-.movieSearchInput form input[type="text"]:focus{
-    outline: none;
+.movieSearchInput form input[type="text"]:focus {
+  outline: none;
 }
 
-.searchMovie input[type="text"]::placeholder, .toWatchCommentForm input[type="text"]::placeholder{
-    font-family: 'Sniglet', Arial, Helvetica, sans-serif;
-    font-size: 1rem;
+.searchMovie input[type="text"]::placeholder,
+.toWatchCommentForm input[type="text"]::placeholder {
+  font-family: "Sniglet", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
 }
 
+.movieSearchInput form input[type="submit"] {
+  margin: 10px 2px;
+  height: 4rem;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
 
-.movieSearchInput form input[type="submit"]
-{
-    margin: 10px 2px;
-    height:4rem;
-    padding:10px;
-    border: none;
-    border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-family: "Sniglet", Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  color: var(--textOne);
+  box-shadow: 2px 2px 7px rgb(65, 65, 65);
 
-    background-color: rgba(255,255,255,0.8);
-    font-family: 'Sniglet', Arial, Helvetica, sans-serif;
-    font-size: 0.8rem;
-    color: var(--textOne);
-    box-shadow: 2px 2px 7px rgb(65, 65, 65);
-
-    margin-right:20px;
-
+  margin-right: 20px;
 }
-
 
 /*design elements*/
 
-.navBarTwo{
-    position: absolute;
+.navBarTwo {
+  position: absolute;
+  height: 5rem;
+  right: 1.7rem;
+  top: 50%;
+  margin-top: -5rem;
+}
+
+.pageTwoCircleIcon {
+  position: absolute;
+  background-color: var(--highlightOne);
+  border-radius: 50%;
+  width: 1031px;
+  height: 1031px;
+
+  z-index: -1;
+  left: -10rem;
+  bottom: -16rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .addContent {
+    padding: 0 20px;
+  }
+
+  .pageTwoTitle {
+    font-size: 4rem;
+  }
+
+  .pageTwoCircleIcon {
+    width: 800px;
+    height: 800px;
+    left: -40rem;
+  }
+
+  .movieSearchInput {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .movies {
+    margin: 0 5px;
+  }
+  .searchMovie input[type="text"],
+  .toWatchCommentForm input[type="text"] {
     height: 5rem;
-    right: 1.7rem;
-    top:50%;
-    margin-top:-5rem;
+    width: 14rem;
+  }
+
+  .movieSearchInput form input[type="submit"] {
+    height: 5rem;
+    width: 5rem;
+    margin: 0;
+    margin-left: 3px;
+  }
+
+  .movieList {
+    height: 100%;
+    width: 100%;
+  }
+  .theMovie {
+    height: 100%;
+    max-width: 100%;
+  }
+
+  .theMovie img {
+    height: 100%;
+    width: 100%;
+  }
 }
-
-.pageTwoCircleIcon{
-    position: absolute;
-    background-color: var(--highlightOne);
-    border-radius: 50%;
-    width: 1031px;
-    height: 1031px;
-
-    z-index:-1;
-    left:-10rem;
-    bottom:-16rem;
-
-}
-
-
-@media only screen and (max-width:900px){
-
-    .addContent{
-        padding: 0 20px;
-    }
-
-    .pageTwoTitle{
-        font-size: 4rem;
-    }
-
-    .pageTwoCircleIcon{
-        width: 800px;
-        height: 800px;
-        left:-40rem;
-    }
-
-    .movieSearchInput{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .movies{
-        margin: 0 5px;
-    }
-    .searchMovie input[type="text"], .toWatchCommentForm input[type="text"]{
-        height:5rem;
-        width:14rem;
-    }
-
-    .movieSearchInput form input[type="submit"]{
-        height:5rem;
-        width:5rem;
-        margin:0;
-        margin-left:3px;
-    }
-
-
-    .movieList{
-        height:100%;
-        width:100%;
-    }
-    .theMovie{
-        height:100%;
-        max-width: 100%;
-    }
-
-    .theMovie img{
-        height:100%;
-        width:100%;
-    }
-    
-
-}
-
