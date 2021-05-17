@@ -1,20 +1,10 @@
 .displayContent {
   display: grid;
   grid-template-areas:
-    "Title Title Title"
     "toWatchList charts charts";
-  grid-template-rows: minmax(0, 1fr) minmax(0, 3fr);
+  grid-template-rows: 100%;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   padding: 5rem;
-}
-
-.pageThreeTitle {
-  grid-area: Title;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 2rem;
 }
 
 .toWatchListCont {
@@ -33,11 +23,6 @@
   align-items: center;
 }
 
-/*title*/
-.pageThreeTitle p {
-  font-size: 5rem;
-  color: var(--highlightTwo);
-}
 
 /*to watch list */
 
